@@ -1,3 +1,17 @@
+/**
+ * ###############################################################################
+ *  File: README.md
+ *  Project: 2D-RPG-Game
+ *  Created Date: Sa 14.December 2024, 12:08:23 am
+ *  Author: lbarwe
+ *  -----
+ *  Last Modified: Sa 14.December 2024, 12:30:40 am
+ *  Modified By: lbarwe
+ *  -----
+ *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
+ * ###############################################################################
+ */
+
 # RPG-Game
 2D RPG game settled in the SciFi genre following a story about time, time traveling and time manipulation.
 
