@@ -1,2 +1,4 @@
-/libs/SDL2
+.vscode
+
+/libs
 /build
