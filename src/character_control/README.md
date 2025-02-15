@@ -1,0 +1,1 @@
+# character_control folder for the controls of the playable character
