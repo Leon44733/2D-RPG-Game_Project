@@ -1,1 +1,0 @@
-# Window folder for the game window and graphical environment

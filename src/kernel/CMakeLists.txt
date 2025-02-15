@@ -5,7 +5,7 @@
 # Created Date: Fr 31.January 2025, 7:34:39 pm
 # Author: lbarwe
 # -----
-# Last Modified: Fr 31.January 2025, 7:37:51 pm
+# Last Modified: Su 09.February 2025, 12:27:32 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,7 +14,7 @@
 
 # define a library for the kernel module
 add_library(kernel STATIC
-    src/gameloop.cpp
+    src/game_loop.cpp
 )
 
 # include directories for this module

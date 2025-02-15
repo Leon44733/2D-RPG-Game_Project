@@ -5,7 +5,7 @@
 # Created Date: Th 26.December 2024, 3:32:33 am
 # Author: lbarwe
 # -----
-# Last Modified: Sa 04.January 2025, 2:11:18 pm
+# Last Modified: Fr 31.January 2025, 8:54:56 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -27,4 +27,6 @@ target_include_directories(mainExecutable
 )
 
 # add subdirectories
-add_subdirectory(window)
+add_subdirectory(ui)
+add_subdirectory(kernel)
+add_subdirectory(utils)
