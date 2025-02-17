@@ -5,7 +5,7 @@
 # Created Date: Sa 14.December 2024, 12:07:38 am
 # Author: lbarwe
 # -----
-# Last Modified: Mo 17.February 2025, 2:41:52 pm
+# Last Modified: Tu 18.February 2025, 11:08:56 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -29,4 +29,4 @@ set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/libs/SDL2/lib/cmake/SDL2")
 find_package(SDL2 REQUIRED)
 
 # add subdirectories
-add_subdirectory(src)
+add_subdirectory(sources)
