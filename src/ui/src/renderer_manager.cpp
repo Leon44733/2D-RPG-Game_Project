@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Su 09.February 2025, 2:18:18 pm
+ *  Last Modified: Mo 17.February 2025, 1:30:46 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -41,7 +41,7 @@ namespace UI
             return mRenderer;
         }
 
-        void RendererManager::addGuiElement(std::shared_ptr<IGuiElement> element)
+        void RendererManager::addGuiElement(std::shared_ptr<GuiElementBase> element)
         {
             mGuiElements.push_back(element);
         }
