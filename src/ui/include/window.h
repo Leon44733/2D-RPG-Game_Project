@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 15.February 2025, 12:41:45 pm
+ *  Last Modified: Mo 17.February 2025, 1:34:17 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -20,7 +20,7 @@
 #include <vector>
 #include <memory>
 
-#include "src/ui/include/i_gui_element.h"
+#include "src/ui/include/gui_element_base.h"
 #include "src/ui/include/renderer_manager.h"
 
 namespace UI
