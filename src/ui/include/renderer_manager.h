@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 12:47:07 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 15.February 2025, 12:40:41 pm
+ *  Last Modified: Mo 17.February 2025, 1:31:03 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,7 +19,7 @@
 #include <vector>
 #include <memory>
 
-#include "src/ui/include/i_gui_element.h"
+#include "src/ui/include/gui_element_base.h"
 
 namespace UI
 {
@@ -33,13 +33,13 @@ namespace UI
 
                 SDL_Renderer* getRenderer() const;
 
-                void addGuiElement(std::shared_ptr<GUI::IGuiElement>);
+                void addGuiElement(std::shared_ptr<GUI::GuiElementBase>);
                 void renderAllElements();
                 void updateAllElements();
 
             private:
                 SDL_Renderer* mRenderer;
-                std::vector<std::shared_ptr<GUI::IGuiElement>> mGuiElements;
+                std::vector<std::shared_ptr<GUI::GuiElementBase>> mGuiElements;
         };
     }
 }
