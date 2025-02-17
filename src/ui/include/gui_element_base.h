@@ -1,19 +1,19 @@
 /**
  * ###############################################################################
- *  File: i_gui_element.h
+ *  File: gui_element_base.h
  *  Project: 2D-RPG-Game
  *  Created Date: Su 09.February 2025, 11:57:00 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 15.February 2025, 1:17:33 pm
+ *  Last Modified: Mo 17.February 2025, 1:28:51 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#ifndef I_GUI_ELEMENT_H
-#define I_GUI_ELEMENT_H
+#ifndef GUI_ELEMENT_BASE_H
+#define GUI_ELEMENT_BASE_H
 
 #include <SDL2/SDL.h>
 
@@ -21,9 +21,9 @@ namespace UI
 {
   namespace GUI
   {
-    struct IGuiElement
+    struct GuiElementBase
     {
-      virtual ~IGuiElement() = default;
+      virtual ~GuiElementBase() = default;
 
       virtual void render(SDL_Renderer*) = 0;
       virtual void update() = 0;
@@ -37,12 +37,9 @@ namespace UI
 
       protected:
       bool mVisible = true;       // element visibilty
-      int mXPos = 0;              // x-position
-      int mYPos = 0;              // y-position
-      int mWidth;                 // element width
-      int mHeight;                // element height
+      SDL_Point mPos{0, 0};       // x-pos and y-pos
     };
   }
 }
 
-#endif // I_GUI_ELEMENT_H
+#endif // GUI_ELEMENT_BASE_H

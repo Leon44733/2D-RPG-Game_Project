@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:16 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Su 09.February 2025, 1:56:47 pm
+ *  Last Modified: Mo 17.February 2025, 12:41:59 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -31,8 +31,8 @@ namespace UI
       }
       else
       {
-        mXPos = 0;
-        mYPos = 0;
+        mPos.x = 0;
+        mPos.y = 0;
         mWidth = 100;
         mHeight = 100;
       }
@@ -43,12 +43,12 @@ namespace UI
       // Note: Do not destroy the texture here, as it is managed by the TextureManager
     }
 
-    void TextureElement::render(SDL_Renderer* renderer)
+    void TextureElement::render(SDL_Renderer* aRenderer)
     {
         if(mTexture)
         {
-            SDL_Rect dstRect = { mXPos, mYPos, mWidth, mHeight };
-            SDL_RenderCopy(renderer, mTexture, nullptr, &dstRect);
+            SDL_Rect dstRect = { mPos.x, mPos.y, mWidth, mHeight };
+            SDL_RenderCopy(aRenderer, mTexture, nullptr, &dstRect);
         }
     }
 
@@ -63,13 +63,13 @@ namespace UI
       mHeight = aHeight;
     }
 
-    void TextureElement::setElementPos(int aXPos, int aYPos)
+    void TextureElement::setElementPos(int x, int y)
     {
-      mXPos = aXPos;
-      mYPos = aYPos;
+      mPos.x = x;
+      mPos.y = y;
     }
 
-    void TextureElement::handleEvent(SDL_Event& event)
+    void TextureElement::handleEvent(SDL_Event& aEvent)
     {
       // TODO: Handle events for the texture element
     }

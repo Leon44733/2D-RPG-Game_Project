@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:26 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Su 09.February 2025, 1:51:01 pm
+ *  Last Modified: Mo 17.February 2025, 1:36:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -18,13 +18,13 @@
 #include <string>
 #include <SDL2/SDL.h>
 
-#include "src/ui/include/i_gui_element.h"
+#include "src/ui/include/gui_element_base.h"
 
 namespace UI
 {
   namespace GUI
   {
-    class TextureElement : public IGuiElement
+    class TextureElement : public GuiElementBase
     {
       public:
         TextureElement(SDL_Texture*);
@@ -38,7 +38,9 @@ namespace UI
         void handleEvent(SDL_Event&) override;
 
       private:
-        SDL_Texture* mTexture;    // element-texture
+        SDL_Texture* mTexture;    // element texture
+        int mWidth;               // element width
+        int mHeight;              // element height
     };
   }
 }
