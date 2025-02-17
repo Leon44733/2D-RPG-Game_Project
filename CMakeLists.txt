@@ -5,7 +5,7 @@
 # Created Date: Sa 14.December 2024, 12:07:38 am
 # Author: lbarwe
 # -----
-# Last Modified: We 22.January 2025, 9:58:42 am
+# Last Modified: Mo 17.February 2025, 2:41:52 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -17,7 +17,7 @@ cmake_minimum_required(VERSION 3.16)
 project(2D-RPG-Game_Project)
 
 # set C++ standard
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # set compiler flags
