@@ -5,7 +5,7 @@
 # Created Date: Mo 17.February 2025, 3:39:51 pm
 # Author: lbarwe
 # -----
-# Last Modified: Mo 17.February 2025, 3:41:07 pm
+# Last Modified: Tu 18.February 2025, 10:36:48 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -26,7 +26,7 @@ target_include_directories(gfx
 )
 
 # link SDL2 with the gfx library
-target_link_libraries(gfx SDL2::SDL2)
+target_link_libraries(gfx SDL2::SDL2 ui)
 
 # link the gfx library to the main executable
 target_link_libraries(mainExecutable gfx)
