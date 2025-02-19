@@ -1,0 +1,27 @@
+#
+################################################################################
+# File: CMakeLists.txt
+# Project: 2D-RPG-Game
+# Created Date: Fr 31.January 2025, 7:34:39 pm
+# Author: lbarwe
+# -----
+# Last Modified: Tu 18.February 2025, 4:16:35 pm
+# Modified By: lbarwe
+# -----
+# Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
+################################################################################
+#
+
+# define a library for the kernel module
+add_library(kernel STATIC)
+target_sources(kernel PRIVATE
+    src/game_loop.cpp
+)
+
+# include directories for this module
+target_include_directories(kernel PUBLIC
+    ${CMAKE_SOURCE_DIR}/sources
+)
+
+# link gfx, ui, utils and SDL2 with the kernel library
+target_link_libraries(kernel PUBLIC gfx ui utils SDL2::SDL2)
