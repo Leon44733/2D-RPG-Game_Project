@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:16 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 11:11:54 am
+ *  Last Modified: Tu 18.February 2025, 3:22:56 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,7 +14,8 @@
 
 #include <iostream>
 
-#include "sources/ui/elements/include/texture_element.h"
+#include "ui/elements/include/texture_element.h"
+#include "gfx/render/include/renderer_manager.h"
 
 namespace UI
 {
@@ -42,13 +43,12 @@ namespace UI
       // Note: Do not destroy the texture here, as it is managed by the TextureManager
     }
 
-    void TextureElement::render(SDL_Renderer* aRenderer)
+    void TextureElement::render(GFX::Render::RendererManager& aRenderer)
     {
-        if(mTexture)
-        {
-            SDL_Rect dstRect = { mPos.x, mPos.y, mWidth, mHeight };
-            SDL_RenderCopy(aRenderer, mTexture, nullptr, &dstRect);
-        }
+      if(mTexture)
+      {
+        aRenderer.getGuiRenderer().render(mTexture, mPos.x, mPos.y, mWidth, mHeight);
+      }
     }
 
     void TextureElement::update()

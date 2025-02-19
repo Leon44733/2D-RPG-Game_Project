@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:11:00 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 17.February 2025, 4:08:34 pm
+ *  Last Modified: Tu 18.February 2025, 3:29:02 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,8 +17,8 @@
 
 #include <memory>
 
-#include "sources/ui/window/include/window.h"
-#include "sources/gfx/renderer/include/renderer_manager.h"
+#include "ui/window/include/window.h"
+#include "gfx/render/include/renderer_manager.h"
 
 namespace Kernel
 {

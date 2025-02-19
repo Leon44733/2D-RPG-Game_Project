@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:26 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 11:12:52 am
+ *  Last Modified: Tu 18.February 2025, 3:23:01 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,21 +16,21 @@
 #define TEXTURE_ELEMENT_H
 
 #include <string>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
-#include "sources/ui/elements/include/gui_element_base.h"
+#include "ui/elements/include/i_gui_element.h"
 
 namespace UI
 {
   namespace ELEM
   {
-    class TextureElement : public GuiElementBase
+    class TextureElement : public IGuiElement
     {
       public:
         TextureElement(SDL_Texture*);
         ~TextureElement();
 
-        void render(SDL_Renderer*) override;
+        void render(GFX::Render::RendererManager&) override;
         void update() override;
         
         void setElementSize(int, int) override;

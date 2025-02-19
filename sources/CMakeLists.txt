@@ -5,26 +5,23 @@
 # Created Date: Th 26.December 2024, 3:32:33 am
 # Author: lbarwe
 # -----
-# Last Modified: Mo 17.February 2025, 3:46:01 pm
+# Last Modified: Tu 18.February 2025, 4:16:16 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
 ################################################################################
 #
 
-# define source and header files
-set(SOURCES
-    main.cpp
-)
-
 # define executable
-add_executable(mainExecutable ${SOURCES})
+add_executable(game main.cpp)
 
-# include subdirectory headers
-target_include_directories(mainExecutable
-    PUBLIC
+# include directories for the main
+target_include_directories(game PUBLIC
     ${CMAKE_SOURCE_DIR}/sources
 )
+
+# link ui, gfx, kernel, utils and SDL2 with the executable
+target_link_libraries(game PRIVATE ui gfx kernel utils SDL2::SDL2)
 
 # add subdirectories
 add_subdirectory(ui)

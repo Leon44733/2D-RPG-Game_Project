@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 17.February 2025, 4:11:59 pm
+ *  Last Modified: Tu 18.February 2025, 3:57:59 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -15,14 +15,14 @@
 #define SDL_MAIN_HANDLED
 
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
-#include "sources/ui/window/include/window.h"
-#include "sources/kernel/include/game_loop.h"
-#include "sources/gfx/texture/include/texture_manager.h"
-#include "sources/utils/include/logger.h"
-#include "sources/gfx/renderer/include/renderer_manager.h"
-#include "sources/ui/elements/include/texture_element.h"
+#include "ui/window/include/window.h"
+#include "kernel/include/game_loop.h"
+#include "gfx/texture/include/texture_manager.h"
+#include "utils/include/logger.h"
+#include "gfx/render/include/renderer_manager.h"
+#include "ui/elements/include/texture_element.h"
 
 int main() 
 {
@@ -67,8 +67,8 @@ int main()
     // Create a GUI element and add it to the RendererManager
     std::shared_ptr<UI::ELEM::TextureElement> bgTextureElem = std::make_shared<UI::ELEM::TextureElement>(bgTexture);
     std::shared_ptr<UI::ELEM::TextureElement> textureElem = std::make_shared<UI::ELEM::TextureElement>(texture);
-    rManager->addGuiElement(bgTextureElem);
-    rManager->addGuiElement(textureElem);
+    rManager->addRenderable(bgTextureElem);
+    rManager->addRenderable(textureElem);
 
     // Initialize and run the game loop
     Kernel::GameLoop gameLoop(window, std::move(rManager));
