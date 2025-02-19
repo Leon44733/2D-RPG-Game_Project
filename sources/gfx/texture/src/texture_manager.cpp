@@ -5,15 +5,15 @@
  *  Created Date: Tu 04.February 2025, 10:40:37 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 17.February 2025, 4:01:17 pm
+ *  Last Modified: Tu 18.February 2025, 3:23:17 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include "sources/gfx/texture/include/texture_manager.h"
-#include "sources/utils/include/logger.h"
+#include "gfx/texture/include/texture_manager.h"
+#include "utils/include/logger.h"
 
 namespace GFX
 {

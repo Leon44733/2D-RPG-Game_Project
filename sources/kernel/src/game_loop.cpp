@@ -5,17 +5,17 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 17.February 2025, 4:27:44 pm
+ *  Last Modified: Tu 18.February 2025, 3:23:07 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <iostream>
 
-#include "sources/kernel/include/game_loop.h"
+#include "kernel/include/game_loop.h"
 
 namespace Kernel
 {
@@ -63,6 +63,6 @@ namespace Kernel
 
     void GameLoop::render()
     {
-        mRendererManager->renderAllElements();
+        mRendererManager->renderAll();
     }
 }

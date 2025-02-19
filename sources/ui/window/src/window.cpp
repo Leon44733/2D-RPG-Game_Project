@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 17.February 2025, 3:30:52 pm
+ *  Last Modified: Tu 18.February 2025, 3:22:50 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,8 +14,8 @@
 
 #include <iostream>
 
-#include "sources/ui/window/include/window.h"
-#include "sources/utils/include/logger.h"
+#include "ui/window/include/window.h"
+#include "utils/include/logger.h"
 
 namespace UI
 {

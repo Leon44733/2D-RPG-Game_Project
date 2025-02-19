@@ -5,23 +5,25 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 11:11:15 am
+ *  Last Modified: Tu 18.February 2025, 3:23:23 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include "sources/gfx/renderer/include/renderer_manager.h"
-#include "sources/utils/include/logger.h"
+#include "gfx/render/include/renderer_manager.h"
+#include "gfx/render/include/i_renderable.h"
+#include "utils/include/logger.h"
 
 namespace GFX
 {
     namespace Render
     {
-        RendererManager::RendererManager(SDL_Window* aWindow)
+        RendererManager::RendererManager(SDL_Window* aWindow) :
+            mRenderer(SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED)),
+            mGuiRenderer(mRenderer)
         {
-            mRenderer = SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED);
             if(!mRenderer)
             {
                 Utils::LOG::Logger::error("SDL2 Error: Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
@@ -35,33 +37,38 @@ namespace GFX
                 SDL_DestroyRenderer(mRenderer);
             }
         }
-
+        
         SDL_Renderer* RendererManager::getRenderer() const
         {
             return mRenderer;
         }
 
-        void RendererManager::addGuiElement(std::shared_ptr<UI::ELEM::GuiElementBase> element)
+        GuiRenderer& RendererManager::getGuiRenderer()
         {
-            mGuiElements.push_back(element);
+            return mGuiRenderer;
         }
 
-        void RendererManager::renderAllElements()
+        void RendererManager::addRenderable(std::shared_ptr<IRenderable> element)
+        {
+            mRenderables.push_back(element);
+        }
+
+        void RendererManager::renderAll()
         {
             SDL_RenderClear(mRenderer);
-            for(auto& element : mGuiElements)
+            for(auto& element : mRenderables)
             {
                 if(element->isVisible())
                 {
-                    element->render(mRenderer);
+                    element->render(*this);
                 }
             }
             SDL_RenderPresent(mRenderer);
         }
 
-        void RendererManager::updateAllElements()
+        void RendererManager::updateAll()
         {
-            for(auto& element : mGuiElements)
+            for(auto& element : mRenderables)
             {
                 element->update();
             }

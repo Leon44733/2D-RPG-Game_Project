@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 12:47:07 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 11:10:48 am
+ *  Last Modified: Tu 18.February 2025, 3:23:34 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,11 +15,12 @@
 #ifndef RENDERER_MANAGER_H
 #define RENDERER_MANAGER_H
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <vector>
 #include <memory>
 
-#include "sources/ui/elements/include/gui_element_base.h"
+#include "gfx/render/include/i_renderable.h"
+#include "gfx/render/include/gui_renderer.h"
 
 namespace GFX
 {
@@ -30,16 +31,18 @@ namespace GFX
             public:
                 RendererManager(SDL_Window*);
                 ~RendererManager();
-
+                
+                void addRenderable(std::shared_ptr<IRenderable>);
+                void renderAll();
+                void updateAll();
+                
                 SDL_Renderer* getRenderer() const;
-
-                void addGuiElement(std::shared_ptr<UI::ELEM::GuiElementBase>);
-                void renderAllElements();
-                void updateAllElements();
+                GuiRenderer& getGuiRenderer();
 
             private:
                 SDL_Renderer* mRenderer;
-                std::vector<std::shared_ptr<UI::ELEM::GuiElementBase>> mGuiElements;
+                std::vector<std::shared_ptr<IRenderable>> mRenderables;
+                GuiRenderer mGuiRenderer;
         };
     }
 }

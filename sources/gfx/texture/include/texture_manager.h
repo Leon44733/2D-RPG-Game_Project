@@ -5,7 +5,7 @@
  *  Created Date: We 29.January 2025, 9:34:49 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 17.February 2025, 4:01:08 pm
+ *  Last Modified: Tu 18.February 2025, 3:07:22 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef TEXTURE_MANAGER_H
 #define TEXTURE_MANAGER_H
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <string>
 #include <unordered_map>
 

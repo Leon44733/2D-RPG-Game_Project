@@ -5,7 +5,7 @@
 # Created Date: Th 02.January 2025, 2:28:56 pm
 # Author: lbarwe
 # -----
-# Last Modified: Mo 17.February 2025, 3:33:22 pm
+# Last Modified: Tu 18.February 2025, 4:16:47 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,21 +13,16 @@
 #
 
 # define a library for the ui module
-add_library(ui STATIC
+add_library(ui STATIC)
+target_sources(ui PRIVATE
     window/src/window.cpp
     elements/src/texture_element.cpp
-    elements/src/i_gui_element.cpp
 )
 
 # include directories for this module
-target_include_directories(ui
-    PUBLIC
-    ${CMAKE_SOURCE_DIR}
-    ${SDL2_INCLUDE_DIRS}
+target_include_directories(ui PUBLIC 
+    ${CMAKE_SOURCE_DIR}/sources
 )
 
-# link SDL2 with the ui library
-target_link_libraries(ui SDL2::SDL2)
-
-# link the ui library to the main executable
-target_link_libraries(mainExecutable ui)
+# link gfx and SDL2 with the ui library
+target_link_libraries(ui PUBLIC gfx SDL2::SDL2)

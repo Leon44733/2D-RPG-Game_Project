@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 11:13:45 am
+ *  Last Modified: Tu 18.February 2025, 3:07:42 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,10 +15,10 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <SDL2/SDL.h>
 #include <string>
 #include <vector>
 #include <memory>
+#include <SDL.h>
 
 namespace UI
 {
