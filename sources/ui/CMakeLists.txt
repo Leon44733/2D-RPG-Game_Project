@@ -5,7 +5,7 @@
 # Created Date: Th 02.January 2025, 2:28:56 pm
 # Author: lbarwe
 # -----
-# Last Modified: Tu 18.February 2025, 4:16:47 pm
+# Last Modified: Fr 21.February 2025, 12:18:37 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -24,5 +24,5 @@ target_include_directories(ui PUBLIC
     ${CMAKE_SOURCE_DIR}/sources
 )
 
-# link gfx and SDL2 with the ui library
-target_link_libraries(ui PUBLIC gfx SDL2::SDL2)
+# link gfx, utils and SDL2 with the ui library
+target_link_libraries(ui PRIVATE gfx utils SDL2::SDL2)

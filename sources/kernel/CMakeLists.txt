@@ -5,7 +5,7 @@
 # Created Date: Fr 31.January 2025, 7:34:39 pm
 # Author: lbarwe
 # -----
-# Last Modified: Tu 18.February 2025, 4:16:35 pm
+# Last Modified: Fr 21.February 2025, 12:18:12 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -23,5 +23,5 @@ target_include_directories(kernel PUBLIC
     ${CMAKE_SOURCE_DIR}/sources
 )
 
-# link gfx, ui, utils and SDL2 with the kernel library
-target_link_libraries(kernel PUBLIC gfx ui utils SDL2::SDL2)
+# link gfx, ui and SDL2 with the kernel library
+target_link_libraries(kernel PRIVATE gfx ui SDL2::SDL2)
