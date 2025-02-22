@@ -5,17 +5,17 @@
 # Created Date: Th 26.December 2024, 3:32:33 am
 # Author: lbarwe
 # -----
-# Last Modified: Tu 18.February 2025, 4:16:16 pm
+# Last Modified: Sa 22.February 2025, 1:39:36 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
 ################################################################################
 #
 
-# define executable
+# define executable for the game
 add_executable(game main.cpp)
 
-# include directories for the main
+# include directories for the main executable
 target_include_directories(game PUBLIC
     ${CMAKE_SOURCE_DIR}/sources
 )

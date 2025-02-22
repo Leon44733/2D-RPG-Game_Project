@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:04:24 pm
+ *  Last Modified: Sa 22.February 2025, 12:14:03 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -27,7 +27,7 @@ namespace ui
     
     bool Window::init()
     {
-        // initialize the SDL2 library
+        // initialize SDL2 library
         if(SDL_Init(SDL_INIT_VIDEO) != 0)
         { 
             // error while trying to initialize
@@ -47,7 +47,7 @@ namespace ui
             
         if(!mSDLWindow)
         {
-            // error while trying to create the window
+            // error while trying to create window
             utils::log::Logger::error("SDL2 Error: Failed to create window\nSDL Error: " + std::string (SDL_GetError()) + "\n");
             SDL_Quit();
             return false;
@@ -71,6 +71,7 @@ namespace ui
     {
         if(mSDLWindow)
         {
+            // destroy window if it exists
             SDL_DestroyWindow(mSDLWindow);
             mSDLWindow = nullptr;
         }

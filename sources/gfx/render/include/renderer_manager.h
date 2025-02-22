@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 12:47:07 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:04:58 pm
+ *  Last Modified: Sa 22.February 2025, 1:33:09 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -26,23 +26,58 @@ namespace gfx
 {
     namespace render
     {
+        /**
+         * @brief RendererManager class for managing the renderers.
+         */
         class RendererManager
         {
             public:
-                RendererManager(SDL_Window*);
+                /**
+                 * @brief Construct new RendererManager object.
+                 * @param aWindow* window
+                 */
+                RendererManager(SDL_Window* aWindow);
+
+                /**
+                 * @brief Destroy RendererManager object.
+                 * This function also destroys the renderer.
+                 */
                 ~RendererManager();
                 
-                void addRenderable(std::shared_ptr<IRenderable>);
+                /**
+                 * @brief Add renderable element to the renderer.
+                 * @param aElement shared pointer to renderable element
+                 */
+                void addRenderable(std::shared_ptr<IRenderable> aElement);
+
+                /**
+                 * @brief Render all renderable elements in the renderables vector.
+                 * It also clears the renderer before rendering.
+                 */
                 void renderAll();
+
+                /**
+                 * @brief Update all renderable elements in the renderables vector.
+                 * This function calls the update function of each renderable element.
+                 */
                 void updateAll();
                 
+                /**
+                 * @brief Get SDL renderer.
+                 * @return SDL_Renderer* sdl renderer
+                 */
                 SDL_Renderer* getRenderer() const;
+
+                /**
+                 * @brief Get GuiRenderer object.
+                 * @return GuiRenderer& gui renderer
+                 */
                 GuiRenderer& getGuiRenderer();
 
             private:
-                SDL_Renderer* mRenderer;
-                std::vector<std::shared_ptr<IRenderable>> mRenderables;
-                GuiRenderer mGuiRenderer;
+                SDL_Renderer* mRenderer;                                    // sdl renderer
+                std::vector<std::shared_ptr<IRenderable>> mRenderables;     // vector of renderable elements
+                GuiRenderer mGuiRenderer;                                   // gui renderer
         };
     }
 }

@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 8:47:34 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:03:14 pm
+ *  Last Modified: Sa 22.February 2025, 12:32:54 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -39,32 +39,28 @@ namespace utils
 
                 /**
                  * @brief Log message with severity level.
-                 * 
                  * @param aLevel severity level
                  * @param aMessage message to log
                  */
-                static void log(Level, const std::string&);
+                static void log(Level aLevel, const std::string& aMessage);
 
                 /**
                  * @brief Log message with info severity level.
-                 * 
                  * @param aMessage message to log
                  */
-                static void info(const std::string&);
+                static void info(const std::string& aMessage);
 
                 /**
                  * @brief Log message with warning severity level.
-                 * 
                  * @param aMessage message to log
                  */
-                static void warning(const std::string&);
+                static void warning(const std::string& aMessage);
 
                 /**
                  * @brief Log message with error severity level.
-                 * 
                  * @param aMessage message to log
                  */
-                static void error(const std::string&);
+                static void error(const std::string& aMessage);
         };
     }
 }

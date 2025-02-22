@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:04:24 pm
+ *  Last Modified: Sa 22.February 2025, 1:10:47 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,9 +15,6 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <string>
-#include <vector>
-#include <memory>
 #include <SDL.h>
 
 namespace ui
@@ -29,39 +26,47 @@ namespace ui
     {
         public:
             /**
-             * @brief Construct a new Window object.
+             * @brief Construct new Window object.
              * Default window size is 300x800.
-             * Default surface path is empty.
              */
             Window();
 
             /**
-             * @brief Destroy the Window object.
-             * This includes destruction of renderer and window.
+             * @brief Destroy Window object.
+             * This function calls destruct() function.
              */
             ~Window();
 
             /**
              * @brief Initialize window.
-             * This includes initialization of renderer and window.
+             * This includes initialization of SDL2 library and creation of window.
+             * @return true if initialization was successful, false otherwise.
              */
             bool init();
 
             /**
              * @brief Destruct window.
-             * This includes destruction of renderer and window.
              * Sdl_Quit() is called at the end.
-             * This function should be called at the end of the program.
              */
             void destruct();
 
-            void setSize(int, int);                                       // set window size
-            SDL_Window* getSDLWindow() const;                             // getter for mSDLWindow
+            /**
+             * @brief Set window size.
+             * @param aWidth window width
+             * @param aHight window hight
+             */
+            void setSize(int aWidth, int aHight);
+            
+            /**
+             * @brief Get SDL window.
+             * @return SDL_Window* sdl window
+             */
+            SDL_Window* getSDLWindow() const;
 
         private:
-            SDL_Window* mSDLWindow;                                       // sdl window
-            int mWidth;                                                   // window width. Default by constructor is 300
-            int mHight;                                                   // window hight. Default by constructor is 800
+            SDL_Window* mSDLWindow;     // sdl window
+            int mWidth;                 // window width. Default by constructor is 300
+            int mHight;                 // window hight. Default by constructor is 800
     };
 }
 

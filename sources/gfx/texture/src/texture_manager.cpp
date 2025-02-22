@@ -5,7 +5,7 @@
  *  Created Date: Tu 04.February 2025, 10:40:37 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:05:43 pm
+ *  Last Modified: Sa 22.February 2025, 1:28:48 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -23,16 +23,17 @@ namespace gfx
 
       TextureManager::~TextureManager()
       {
-          for(auto& texture : mTextureCache)
-          {
-              SDL_DestroyTexture(texture.second);
-          }
-          clearCache();
+        // free all textures in cache
+        for(auto& texture : mTextureCache)
+        {
+            SDL_DestroyTexture(texture.second);
+        }
+        clearCache();
       }
 
     bool TextureManager::load(const std::string& aFilePath, const std::string& aTextureId, SDL_Renderer* aRenderer)
     {
-      // load bild file as surface
+      // load image from file
       SDL_Surface* tempSurface = SDL_LoadBMP(aFilePath.c_str());
       if(!tempSurface)
       {
@@ -56,22 +57,39 @@ namespace gfx
 
     SDL_Texture* TextureManager::getTexture(const std::string& aTextureId) const
     {
+      // search for texture in cache and return it
       auto it = mTextureCache.find(aTextureId);
       if(it != mTextureCache.end())
       {
-          return it->second;
+        return it->second;
       }
+      utils::log::Logger::warning("Texture not found with ID: " + aTextureId);
       return nullptr;
     }
 
-    void TextureManager::releaseTexture(const std::string& aTextureId)
+    bool TextureManager::releaseTexture(const std::string& aTextureId)
     {
-      mTextureCache.erase(aTextureId);
+      // search for texture in cache and release it
+      auto it = mTextureCache.find(aTextureId);
+      if(it != mTextureCache.end())
+      {
+          SDL_DestroyTexture(it->second);
+          mTextureCache.erase(it);
+          return true;
+      }
+      utils::log::Logger::warning("Texture with ID '" + aTextureId + "' not found.");
+      return false;
     }
 
     void TextureManager::clearCache()
     {
+      // free all textures in cache
+      for(auto& texture : mTextureCache)
+      {
+          SDL_DestroyTexture(texture.second);
+      }
       mTextureCache.clear();
+      utils::log::Logger::info("Texture cache cleared.");
     }
   }
 }

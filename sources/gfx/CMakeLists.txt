@@ -5,14 +5,14 @@
 # Created Date: Mo 17.February 2025, 3:39:51 pm
 # Author: lbarwe
 # -----
-# Last Modified: Tu 18.February 2025, 4:16:29 pm
+# Last Modified: Sa 22.February 2025, 1:39:05 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
 ################################################################################
 #
 
-# define a library for the gfx module
+# define library for gfx module
 add_library(gfx STATIC)
 target_sources(gfx PRIVATE
     texture/src/texture_manager.cpp

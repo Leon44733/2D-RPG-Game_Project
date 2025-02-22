@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:05:26 pm
+ *  Last Modified: Sa 22.February 2025, 1:03:00 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,20 +13,14 @@
  */
 
 #include <SDL.h>
-#include <iostream>
 
 #include "kernel/include/game_loop.h"
 
 namespace kernel
 {
-    GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRendererManager)  :
-        mSDLWindow(aSDLWindow), mRendererManager(std::move(aRendererManager))
-    {
-    }
-
-    GameLoop::~GameLoop()
-    {
-    }
+    GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRManager)  :
+        mSDLWindow(aSDLWindow), mRManager(std::move(aRManager)) {}
+    GameLoop::~GameLoop() {}
 
     void GameLoop::run()
     {
@@ -43,10 +37,10 @@ namespace kernel
                 {
                     running = false;
                 }
-                handleEvents();
+                handleEvents(); // TODO
             }
 
-            update();
+            update(); // TODO
             render();
         }
     }
@@ -63,6 +57,6 @@ namespace kernel
 
     void GameLoop::render()
     {
-        mRendererManager->renderAll();
+        mRManager->renderAll();
     }
 }

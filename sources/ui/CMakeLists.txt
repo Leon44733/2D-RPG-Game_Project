@@ -5,14 +5,14 @@
 # Created Date: Th 02.January 2025, 2:28:56 pm
 # Author: lbarwe
 # -----
-# Last Modified: Fr 21.February 2025, 12:18:37 pm
+# Last Modified: Sa 22.February 2025, 12:49:38 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
 ################################################################################
 #
 
-# define a library for the ui module
+# define library for the ui module
 add_library(ui STATIC)
 target_sources(ui PRIVATE
     window/src/window.cpp

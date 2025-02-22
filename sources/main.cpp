@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:05:43 pm
+ *  Last Modified: Sa 22.February 2025, 1:40:44 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -14,7 +14,6 @@
 
 #define SDL_MAIN_HANDLED
 
-#include <iostream>
 #include <SDL.h>
 
 #include "ui/window/include/window.h"
@@ -74,6 +73,7 @@ int main()
     kernel::GameLoop gameLoop(window, std::move(rManager));
     gameLoop.run();
 
+    // Destruct window
     window->destruct();
     return 0;
 }

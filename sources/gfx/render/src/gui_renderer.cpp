@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 2:12:45 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:04:58 pm
+ *  Last Modified: Sa 22.February 2025, 1:38:37 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -23,8 +23,9 @@
  
      void GuiRenderer::render(SDL_Texture* aTexture, int x, int y, int aWidth, int aHeight)
      {
-         SDL_Rect dstRect = { x, y, aWidth, aHeight };
-         SDL_RenderCopy(mRenderer, aTexture, nullptr, &dstRect);
+      // render texture at position
+      SDL_Rect dstRect = { x, y, aWidth, aHeight };
+      SDL_RenderCopy(mRenderer, aTexture, nullptr, &dstRect);
      }
    }
  }

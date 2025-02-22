@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 11:57:00 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:05:05 pm
+ *  Last Modified: Sa 22.February 2025, 1:14:43 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -31,17 +31,40 @@ namespace ui
 {
   namespace elem
   {
+    /**
+     * @brief Interface class for GUI elements.
+     * It also inherits from IRenderable class.
+     */
     class IGuiElement : public gfx::render::IRenderable
     {
       public:
+        /**
+         * @brief Destroy IGuiElement object.
+         */
         virtual ~IGuiElement() = default;
       
-        virtual void setElementSize(int, int) = 0;
-        virtual void setElementPos(int, int) = 0;
-        virtual void handleEvent(SDL_Event&) = 0;
+        /**
+         * @brief Set size of element.
+         * @param aWidth element width
+         * @param aHeight element height
+         */
+        virtual void setElementSize(int aWidth, int aHeight) = 0;
+
+        /**
+         * @brief Set position of element.
+         * @param x x-position
+         * @param y y-position
+         */
+        virtual void setElementPos(int x, int y) = 0;
+        
+        /**
+         * @brief Handle events for element.
+         * @param aEvent SDL event
+         */
+        virtual void handleEvent(SDL_Event& aEvent) = 0;
         
       protected:
-        SDL_Point mPos{0, 0};       // x-pos and y-pos
+        SDL_Point mPos{0, 0};   // x-pos and y-pos of element
     };
   }
 }

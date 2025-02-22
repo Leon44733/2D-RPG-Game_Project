@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:04:58 pm
+ *  Last Modified: Sa 22.February 2025, 1:37:48 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -32,6 +32,7 @@ namespace gfx
 
         RendererManager::~RendererManager()
         {
+            // free renderer
             if(mRenderer)
             {
                 SDL_DestroyRenderer(mRenderer);
@@ -48,13 +49,14 @@ namespace gfx
             return mGuiRenderer;
         }
 
-        void RendererManager::addRenderable(std::shared_ptr<IRenderable> element)
+        void RendererManager::addRenderable(std::shared_ptr<IRenderable> aElement)
         {
-            mRenderables.push_back(element);
+            mRenderables.push_back(aElement);
         }
 
         void RendererManager::renderAll()
         {
+            // render all renderable elements
             SDL_RenderClear(mRenderer);
             for(auto& element : mRenderables)
             {
@@ -68,6 +70,7 @@ namespace gfx
 
         void RendererManager::updateAll()
         {
+            // update all renderable elements
             for(auto& element : mRenderables)
             {
                 element->update();

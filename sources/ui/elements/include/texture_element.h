@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:26 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:05:05 pm
+ *  Last Modified: Sa 22.February 2025, 1:14:32 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,6 @@
 #ifndef TEXTURE_ELEMENT_H
 #define TEXTURE_ELEMENT_H
 
-#include <string>
 #include <SDL.h>
 
 #include "ui/elements/include/i_gui_element.h"
@@ -24,21 +23,57 @@ namespace ui
 {
   namespace elem
   {
+    /**
+     * @brief TextureElement class for rendering textures on the screen.
+     * It inherits from IGuiElement class.
+     */
     class TextureElement : public IGuiElement
     {
       public:
-        TextureElement(SDL_Texture*);
+        /**
+         * @brief Construct new TextureElement object.
+         * @param aTexture texture to render
+         */
+        TextureElement(SDL_Texture* aTexture);
+        
+        /**
+         * @brief Destroy TextureElement object.
+         */
         ~TextureElement();
 
-        void render(gfx::render::RendererManager&) override;
-        void update() override;
+        /**
+         * @brief Render texture element by passing the renderer manager.
+         * @param aRenderer renderer manager
+         */
+        void render(gfx::render::RendererManager& aRenderer) override;
+
+        /**
+         * @brief Update texture element.
+         */
+        void update() override; //TODO
         
-        void setElementSize(int, int) override;
-        void setElementPos(int, int) override;
-        void handleEvent(SDL_Event&) override;
+        /**
+         * @brief Set size of element.
+         * @param aWidth element width
+         * @param aHeight element height
+         */
+        void setElementSize(int aWidth, int aHeight) override;
+        
+        /**
+         * @brief Set position of element.
+         * @param x x-position
+         * @param y y-position
+         */
+        void setElementPos(int x, int y) override;
+
+        /**
+         * @brief Handle events for the element.
+         * @param aEvent event to handle
+         */
+        void handleEvent(SDL_Event& aEvent) override; //TODO
 
       private:
-        SDL_Texture* mTexture;    // element texture
+        SDL_Texture* mTexture;    // texture to render
         int mWidth;               // element width
         int mHeight;              // element height
     };
