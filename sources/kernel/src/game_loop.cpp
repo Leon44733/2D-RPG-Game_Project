@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:03:00 pm
+ *  Last Modified: Sa 22.February 2025, 6:48:09 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,6 +13,7 @@
  */
 
 #include <SDL.h>
+#include <iostream>
 
 #include "kernel/include/game_loop.h"
 
@@ -40,23 +41,34 @@ namespace kernel
                 handleEvents(); // TODO
             }
 
-            update(); // TODO
+            update();
             render();
         }
-    }
-
-    void GameLoop::handleEvents()
-    {
-        // TODO: Handle events for the game
-    }
-
-    void GameLoop::update()
-    {
-        // TODO: Update game logic
     }
 
     void GameLoop::render()
     {
         mRManager->renderAll();
+    }
+
+    void GameLoop::update()
+    {
+        // update key input
+        mKeyInput.update();
+        checkForInput();
+    }
+    
+    void GameLoop::handleEvents()
+    {
+        // TODO: Handle events for the game
+        // for example: on key press, on mouse click, etc. for starting a menu etc.
+    }
+
+    void GameLoop::checkForInput() // TODO
+    {
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { /* nach oben bewegen */ }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { /* nach links bewegen */ }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { /* nach unten bewegen */ }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { /* nach rechts bewegen */ }
     }
 }

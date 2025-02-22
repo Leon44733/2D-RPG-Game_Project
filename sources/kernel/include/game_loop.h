@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:11:00 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:02:41 pm
+ *  Last Modified: Sa 22.February 2025, 6:45:22 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,6 +19,7 @@
 
 #include "ui/window/include/window.h"
 #include "gfx/render/include/renderer_manager.h"
+#include "kernel/input/include/key_input.h"
 
 namespace kernel
 {
@@ -48,23 +49,28 @@ namespace kernel
 
         private:
             /**
+             * @brief Render all elements of the game.
+             */
+            void render();
+            
+            /**
+             * @brief Update game logic.
+             */
+            void update();
+            
+            /**
              * @brief Handle events for the game.
              */
             void handleEvents(); //TODO
             
             /**
-             * @brief Update game logic.
+             * @brief Check for input from the user.
              */
-            void update(); //TODO
-            
-            /**
-             * @brief Render the game.
-             * This function renders all elements of the game.
-             */
-            void render();
+            void checkForInput();
             
             std::shared_ptr<ui::Window> mSDLWindow;                      // shared pointer to window object
             std::unique_ptr<gfx::render::RendererManager> mRManager;     // unique pointer to renderer manager object
+            input::KeyInput mKeyInput;                                   // key input object
     };
 }
 
