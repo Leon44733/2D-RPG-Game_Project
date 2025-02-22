@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:22:50 pm
+ *  Last Modified: Sa 22.February 2025, 12:04:24 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,7 +17,7 @@
 #include "ui/window/include/window.h"
 #include "utils/include/logger.h"
 
-namespace UI
+namespace ui
 {
     Window::Window() : mSDLWindow(nullptr), mWidth(300), mHight(800) {}
     Window::~Window()
@@ -31,7 +31,7 @@ namespace UI
         if(SDL_Init(SDL_INIT_VIDEO) != 0)
         { 
             // error while trying to initialize
-            Utils::LOG::Logger::error("SDL2 Error: Failed to initialize the SDL2 library\nSDL Error: " + std::string (SDL_GetError()) + "\n");
+            utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL2 library\nSDL Error: " + std::string (SDL_GetError()) + "\n");
             return false;
         }
 
@@ -48,7 +48,7 @@ namespace UI
         if(!mSDLWindow)
         {
             // error while trying to create the window
-            Utils::LOG::Logger::error("SDL2 Error: Failed to create window\nSDL Error: " + std::string (SDL_GetError()) + "\n");
+            utils::log::Logger::error("SDL2 Error: Failed to create window\nSDL Error: " + std::string (SDL_GetError()) + "\n");
             SDL_Quit();
             return false;
         }

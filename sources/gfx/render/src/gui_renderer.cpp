@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 2:12:45 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 19.February 2025, 9:59:42 am
+ *  Last Modified: Sa 22.February 2025, 12:04:58 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,9 +14,9 @@
 
  #include "gfx/render/include/gui_renderer.h"
 
- namespace GFX
+ namespace gfx
  {
-   namespace Render
+   namespace render
    {
      GuiRenderer::GuiRenderer(SDL_Renderer* aRenderer) :mRenderer(aRenderer) {}
      GuiRenderer::~GuiRenderer() {}

@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:36:33 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 2:34:36 pm
+ *  Last Modified: Sa 22.February 2025, 12:04:58 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,9 +15,9 @@
 #ifndef I_RENDERABLE_H
 #define I_RENDERABLE_H
 
-namespace GFX
+namespace gfx
 {
-  namespace Render
+  namespace render
   {
     class RendererManager; // forward declaration
 

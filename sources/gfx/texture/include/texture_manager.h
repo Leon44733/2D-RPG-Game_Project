@@ -5,7 +5,7 @@
  *  Created Date: We 29.January 2025, 9:34:49 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:07:22 pm
+ *  Last Modified: Sa 22.February 2025, 12:05:43 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,9 +19,9 @@
 #include <string>
 #include <unordered_map>
 
-namespace GFX
+namespace gfx
 {
-  namespace Texture
+  namespace texture
   {
     class TextureManager
     {

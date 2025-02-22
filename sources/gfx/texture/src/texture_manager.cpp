@@ -5,7 +5,7 @@
  *  Created Date: Tu 04.February 2025, 10:40:37 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:23:17 pm
+ *  Last Modified: Sa 22.February 2025, 12:05:43 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,9 +15,9 @@
 #include "gfx/texture/include/texture_manager.h"
 #include "utils/include/logger.h"
 
-namespace GFX
+namespace gfx
 {
-  namespace Texture
+  namespace texture
   {
       TextureManager::TextureManager() {}
 
@@ -36,7 +36,7 @@ namespace GFX
       SDL_Surface* tempSurface = SDL_LoadBMP(aFilePath.c_str());
       if(!tempSurface)
       {
-        Utils::LOG::Logger::error("SDL2 Error: Failed to load image.\nSDL Error: " + std::string (SDL_GetError()) + "\n");
+        utils::log::Logger::error("SDL2 Error: Failed to load image.\nSDL Error: " + std::string (SDL_GetError()) + "\n");
         return false;
       }
 
@@ -45,7 +45,7 @@ namespace GFX
       SDL_FreeSurface(tempSurface);
       if (!texture)
       {
-        Utils::LOG::Logger::error("SDL2 Error: Failed to create texture.\nSDL Error: " + std::string (SDL_GetError()) + "\n");
+        utils::log::Logger::error("SDL2 Error: Failed to create texture.\nSDL Error: " + std::string (SDL_GetError()) + "\n");
         return false;
       }
 

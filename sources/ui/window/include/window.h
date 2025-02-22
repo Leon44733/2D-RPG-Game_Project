@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:07:42 pm
+ *  Last Modified: Sa 22.February 2025, 12:04:24 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -20,7 +20,7 @@
 #include <memory>
 #include <SDL.h>
 
-namespace UI
+namespace ui
 {
     /**
      * @brief Window class for handling the window.

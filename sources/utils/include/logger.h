@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 8:47:34 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 31.January 2025, 9:20:06 pm
+ *  Last Modified: Sa 22.February 2025, 12:03:14 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,9 +17,9 @@
 
 #include <iostream>
 
-namespace Utils
+namespace utils
 {
-    namespace LOG
+    namespace log
     {
         /**
          * @brief Logger class for logging messages with different severity levels.

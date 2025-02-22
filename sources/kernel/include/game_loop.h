@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:11:00 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:29:02 pm
+ *  Last Modified: Sa 22.February 2025, 12:05:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -20,7 +20,7 @@
 #include "ui/window/include/window.h"
 #include "gfx/render/include/renderer_manager.h"
 
-namespace Kernel
+namespace kernel
 {
     /**
      * @brief GameLoop class for handling the game loop.
@@ -33,7 +33,7 @@ namespace Kernel
              * 
              * @param aSDLWindow shared pointer to window object
              */
-            GameLoop(std::shared_ptr<UI::Window>, std::unique_ptr<GFX::Render::RendererManager>);
+            GameLoop(std::shared_ptr<ui::Window>, std::unique_ptr<gfx::render::RendererManager>);
 
             /**
              * @brief Destroy the GameLoop object.
@@ -46,8 +46,8 @@ namespace Kernel
             void run();
 
         private:
-            std::shared_ptr<UI::Window> mSDLWindow;     // shared pointer to window object
-            std::unique_ptr<GFX::Render::RendererManager> mRendererManager;
+            std::shared_ptr<ui::Window> mSDLWindow;     // shared pointer to window object
+            std::unique_ptr<gfx::render::RendererManager> mRendererManager;
 
             void handleEvents();
             void update();

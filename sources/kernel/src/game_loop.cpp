@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:23:07 pm
+ *  Last Modified: Sa 22.February 2025, 12:05:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,9 +17,9 @@
 
 #include "kernel/include/game_loop.h"
 
-namespace Kernel
+namespace kernel
 {
-    GameLoop::GameLoop(std::shared_ptr<UI::Window> aSDLWindow, std::unique_ptr<GFX::Render::RendererManager> aRendererManager)  :
+    GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRendererManager)  :
         mSDLWindow(aSDLWindow), mRendererManager(std::move(aRendererManager))
     {
     }

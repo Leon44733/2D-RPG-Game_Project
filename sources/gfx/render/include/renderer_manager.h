@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 12:47:07 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:23:34 pm
+ *  Last Modified: Sa 22.February 2025, 12:04:58 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -22,9 +22,9 @@
 #include "gfx/render/include/i_renderable.h"
 #include "gfx/render/include/gui_renderer.h"
 
-namespace GFX
+namespace gfx
 {
-    namespace Render
+    namespace render
     {
         class RendererManager
         {

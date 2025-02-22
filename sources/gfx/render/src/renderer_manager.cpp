@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:23:23 pm
+ *  Last Modified: Sa 22.February 2025, 12:04:58 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,9 +16,9 @@
 #include "gfx/render/include/i_renderable.h"
 #include "utils/include/logger.h"
 
-namespace GFX
+namespace gfx
 {
-    namespace Render
+    namespace render
     {
         RendererManager::RendererManager(SDL_Window* aWindow) :
             mRenderer(SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED)),
@@ -26,7 +26,7 @@ namespace GFX
         {
             if(!mRenderer)
             {
-                Utils::LOG::Logger::error("SDL2 Error: Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+                utils::log::Logger::error("SDL2 Error: Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
             }
         }
 

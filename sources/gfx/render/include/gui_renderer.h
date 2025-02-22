@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:42:25 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 19.February 2025, 9:58:53 am
+ *  Last Modified: Sa 22.February 2025, 12:04:58 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,9 +17,9 @@
 
 #include <SDL.h>
 
-namespace GFX
+namespace gfx
 {
-  namespace Render
+  namespace render
   {
     class GuiRenderer
     {

@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:16 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:22:56 pm
+ *  Last Modified: Sa 22.February 2025, 12:05:05 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,9 +17,9 @@
 #include "ui/elements/include/texture_element.h"
 #include "gfx/render/include/renderer_manager.h"
 
-namespace UI
+namespace ui
 {
-  namespace ELEM
+  namespace elem
   {
     TextureElement::TextureElement(SDL_Texture* aTexture) :
       mTexture(aTexture)
@@ -43,7 +43,7 @@ namespace UI
       // Note: Do not destroy the texture here, as it is managed by the TextureManager
     }
 
-    void TextureElement::render(GFX::Render::RendererManager& aRenderer)
+    void TextureElement::render(gfx::render::RendererManager& aRenderer)
     {
       if(mTexture)
       {

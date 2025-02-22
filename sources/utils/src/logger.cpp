@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 8:47:14 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 18.February 2025, 3:22:44 pm
+ *  Last Modified: Sa 22.February 2025, 12:03:14 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,9 +14,9 @@
 
 #include "utils/include/Logger.h"
 
-namespace Utils
+namespace utils
 {
-    namespace LOG
+    namespace log
     {
         void Logger::log(Level aLevel, const std::string& aMessage)
         {

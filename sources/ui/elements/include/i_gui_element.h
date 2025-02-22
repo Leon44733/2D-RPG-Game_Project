@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 11:57:00 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 19.February 2025, 10:37:57 am
+ *  Last Modified: Sa 22.February 2025, 12:05:05 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,19 +19,19 @@
 
 #include "gfx/render/include/i_renderable.h"
 
-namespace GFX
+namespace gfx
 {
-  namespace Render
+  namespace render
   {
      class RendererManager; // forward declaration
   }
 }
 
-namespace UI
+namespace ui
 {
-  namespace ELEM
+  namespace elem
   {
-    class IGuiElement : public GFX::Render::IRenderable
+    class IGuiElement : public gfx::render::IRenderable
     {
       public:
         virtual ~IGuiElement() = default;
