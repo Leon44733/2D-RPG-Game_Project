@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:42:25 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:34:31 pm
+ *  Last Modified: Th 27.February 2025, 1:19:52 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -46,7 +46,7 @@ namespace gfx
          * @param aWidth texture width
          * @param aHeight texture height
          */
-        void render(SDL_Texture*, int, int, int, int);
+        void render(SDL_Texture* aTexture, int x, int y, int aWidth, int aHeight);
 
       private:
         SDL_Renderer* mRenderer;    // SDL renderer
