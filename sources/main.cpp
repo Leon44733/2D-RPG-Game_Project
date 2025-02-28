@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:40:44 pm
+ *  Last Modified: Fr 28.February 2025, 2:57:01 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -43,8 +43,10 @@ int main()
     // Initialize TextureManager and load a texture
     gfx::texture::TextureManager tManager;
     tManager.load("assets/images/Test-Background.bmp", "Background", rManager->getRenderer());
-    tManager.load("assets/images/GuiElement.bmp", "Test", rManager->getRenderer());
-
+    tManager.load("assets/images/Hotbar.bmp", "Hotbar", rManager->getRenderer());
+    tManager.load("assets/images/Health-Bar.bmp", "HealthBar", rManager->getRenderer());
+    tManager.load("assets/images/Mana-Bar.bmp", "ManaBar", rManager->getRenderer());
+    
     // Create a GUI element using the texture from the TextureManager
     SDL_Texture* bgTexture = tManager.getTexture("Background");
     if (bgTexture == nullptr)
@@ -55,8 +57,26 @@ int main()
     }
 
     // Create a GUI element using the texture from the TextureManager
-    SDL_Texture* texture = tManager.getTexture("Test");
-    if (texture == nullptr)
+    SDL_Texture* hotBarTexture = tManager.getTexture("Hotbar");
+    if (hotBarTexture == nullptr)
+    {
+        utils::log::Logger::error("Could not load texture from TextureManager");
+        window->destruct();
+        return -1;
+    }
+
+    // Create a GUI element using the texture from the TextureManager
+    SDL_Texture* healthBarTexture = tManager.getTexture("HealthBar");
+    if (healthBarTexture == nullptr)
+    {
+        utils::log::Logger::error("Could not load texture from TextureManager");
+        window->destruct();
+        return -1;
+    }
+
+    // Create a GUI element using the texture from the TextureManager
+    SDL_Texture* manaBarTexture = tManager.getTexture("ManaBar");
+    if (manaBarTexture == nullptr)
     {
         utils::log::Logger::error("Could not load texture from TextureManager");
         window->destruct();
@@ -64,10 +84,15 @@ int main()
     }
 
     // Create a GUI element and add it to the RendererManager
-    std::shared_ptr<ui::elem::TextureElement> bgTextureElem = std::make_shared<ui::elem::TextureElement>(bgTexture);
-    std::shared_ptr<ui::elem::TextureElement> textureElem = std::make_shared<ui::elem::TextureElement>(texture);
-    rManager->addRenderable(bgTextureElem);
-    rManager->addRenderable(textureElem);
+    std::shared_ptr<ui::elem::TextureElement> bgElem = std::make_shared<ui::elem::TextureElement>(bgTexture);
+    std::shared_ptr<ui::elem::TextureElement> hotBarElem = std::make_shared<ui::elem::TextureElement>(hotBarTexture);
+    std::shared_ptr<ui::elem::TextureElement> healthBarElem = std::make_shared<ui::elem::TextureElement>(healthBarTexture);
+    std::shared_ptr<ui::elem::TextureElement> manaBarElem = std::make_shared<ui::elem::TextureElement>(manaBarTexture);
+    
+    rManager->addRenderable(bgElem);
+    rManager->addRenderable(hotBarElem);
+    rManager->addRenderable(healthBarElem);
+    rManager->addRenderable(manaBarElem);
 
     // Initialize and run the game loop
     kernel::GameLoop gameLoop(window, std::move(rManager));
