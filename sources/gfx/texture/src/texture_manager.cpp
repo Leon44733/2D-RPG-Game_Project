@@ -5,12 +5,14 @@
  *  Created Date: Tu 04.February 2025, 10:40:37 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:28:48 pm
+ *  Last Modified: Sa 01.March 2025, 1:56:14 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
+
+#include <SDL_image.h>
 
 #include "gfx/texture/include/texture_manager.h"
 #include "utils/include/logger.h"
@@ -33,20 +35,11 @@ namespace gfx
 
     bool TextureManager::load(const std::string& aFilePath, const std::string& aTextureId, SDL_Renderer* aRenderer)
     {
-      // load image from file
-      SDL_Surface* tempSurface = SDL_LoadBMP(aFilePath.c_str());
-      if(!tempSurface)
-      {
-        utils::log::Logger::error("SDL2 Error: Failed to load image.\nSDL Error: " + std::string (SDL_GetError()) + "\n");
-        return false;
-      }
-
-      // create texture from surface
-      SDL_Texture* texture = SDL_CreateTextureFromSurface(aRenderer, tempSurface);
-      SDL_FreeSurface(tempSurface);
+      // load texture from file
+      SDL_Texture* texture = IMG_LoadTexture(aRenderer, aFilePath.c_str());
       if (!texture)
       {
-        utils::log::Logger::error("SDL2 Error: Failed to create texture.\nSDL Error: " + std::string (SDL_GetError()) + "\n");
+        utils::log::Logger::error("SDL2 Error: Failed to load texture.\nSDL Error: " + std::string (SDL_GetError()) + "\n");
         return false;
       }
 
