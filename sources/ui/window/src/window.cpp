@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:14:03 pm
+ *  Last Modified: Sa 01.March 2025, 2:27:50 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,13 +13,14 @@
  */
 
 #include <iostream>
+#include <SDL_image.h>
 
 #include "ui/window/include/window.h"
 #include "utils/include/logger.h"
 
 namespace ui
 {
-    Window::Window() : mSDLWindow(nullptr), mWidth(300), mHight(800) {}
+    Window::Window() : mSDLWindow(nullptr), mWidth(300), mHeight(800) {}
     Window::~Window()
     {
         destruct();
@@ -27,11 +28,19 @@ namespace ui
     
     bool Window::init()
     {
-        // initialize SDL2 library
+        // Initialize SDL2 library
         if(SDL_Init(SDL_INIT_VIDEO) != 0)
         { 
-            // error while trying to initialize
+            // error while trying to initialize SDL2 library
             utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL2 library\nSDL Error: " + std::string (SDL_GetError()) + "\n");
+            return false;
+        }
+
+        // Initialize SDL_image library
+        if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
+        {
+            // error while trying to initialize SDL_image library
+            utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL_image library\nSDL Error: " + std::string( SDL_GetError()) + "\n");
             return false;
         }
 
@@ -41,7 +50,7 @@ namespace ui
             SDL_WINDOWPOS_CENTERED,
             SDL_WINDOWPOS_CENTERED,
             mWidth,
-            mHight,
+            mHeight,
             SDL_WINDOW_SHOWN
             );
             
@@ -59,7 +68,17 @@ namespace ui
     void Window::setSize(int aWidth, int aHight)
     {
         mWidth = aWidth;
-        mHight = aHight;
+        mHeight = aHight;
+    }
+
+    int Window::getWidth() const
+    {
+        return mWidth;
+    }
+
+    int Window::getHeight() const
+    {
+        return mHeight;
     }
 
     SDL_Window* Window::getSDLWindow() const
@@ -76,6 +95,7 @@ namespace ui
             mSDLWindow = nullptr;
         }
         
-        SDL_Quit();
+        IMG_Quit(); // quit SDL_image library
+        SDL_Quit(); // quit SDL2 library
     }
 }

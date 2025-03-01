@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:10:47 pm
+ *  Last Modified: Sa 01.March 2025, 1:46:52 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -56,6 +56,18 @@ namespace ui
              * @param aHight window hight
              */
             void setSize(int aWidth, int aHight);
+
+            /**
+             * @brief Get window width.
+             * @return int window width
+             */
+            int getWidth() const;
+
+            /**
+             * @brief Get window height.
+             * @return int window height
+             */
+            int getHeight() const;
             
             /**
              * @brief Get SDL window.
@@ -66,7 +78,7 @@ namespace ui
         private:
             SDL_Window* mSDLWindow;     // sdl window
             int mWidth;                 // window width. Default by constructor is 300
-            int mHight;                 // window hight. Default by constructor is 800
+            int mHeight;                // window height. Default by constructor is 800
     };
 }
 
