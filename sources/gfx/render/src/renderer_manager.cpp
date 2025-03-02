@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:37:48 pm
+ *  Last Modified: Sa 01.March 2025, 3:33:37 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -22,7 +22,8 @@ namespace gfx
     {
         RendererManager::RendererManager(SDL_Window* aWindow) :
             mRenderer(SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED)),
-            mGuiRenderer(mRenderer)
+            mGuiRenderer(mRenderer),
+            mCharacterRenderer(mRenderer)
         {
             if(!mRenderer)
             {
@@ -47,6 +48,11 @@ namespace gfx
         GuiRenderer& RendererManager::getGuiRenderer()
         {
             return mGuiRenderer;
+        }
+
+        CharacterRenderer& RendererManager::getCharacterRenderer()
+        {
+            return mCharacterRenderer;
         }
 
         void RendererManager::addRenderable(std::shared_ptr<IRenderable> aElement)

@@ -5,7 +5,7 @@
 # Created Date: Mo 17.February 2025, 3:39:51 pm
 # Author: lbarwe
 # -----
-# Last Modified: Sa 01.March 2025, 2:28:18 pm
+# Last Modified: Sa 01.March 2025, 4:10:12 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -18,6 +18,7 @@ target_sources(gfx PRIVATE
     texture/src/texture_manager.cpp
     render/src/renderer_manager.cpp
     render/src/gui_renderer.cpp
+    render/src/character_renderer.cpp
 )
 
 # include directories for this module

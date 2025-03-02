@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 6:48:09 pm
+ *  Last Modified: Sa 01.March 2025, 7:27:03 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,8 +19,17 @@
 
 namespace kernel
 {
-    GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRManager)  :
-        mSDLWindow(aSDLWindow), mRManager(std::move(aRManager)) {}
+    GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRManager, std::unique_ptr<gfx::texture::TextureManager> aTManager)  :
+        mSDLWindow(aSDLWindow),
+        mRManager(std::move(aRManager)),
+        mTManager(std::move(aTManager))
+        {
+            // create player character
+            SDL_Texture* playerTexture = mTManager->getTexture("Player");
+            mPlayer = std::make_shared<entities::characters::PlayerCharacter>(0, 0, 1, playerTexture);
+            mRManager->addRenderable(mPlayer);
+        }
+        
     GameLoop::~GameLoop() {}
 
     void GameLoop::run()
@@ -64,11 +73,11 @@ namespace kernel
         // for example: on key press, on mouse click, etc. for starting a menu etc.
     }
 
-    void GameLoop::checkForInput() // TODO
+    void GameLoop::checkForInput()
     {
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { /* nach oben bewegen */ }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { /* nach links bewegen */ }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { /* nach unten bewegen */ }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { /* nach rechts bewegen */ }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { mPlayer->moveUp(); }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { mPlayer->moveDown(); }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { mPlayer->moveLeft(); }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { mPlayer->moveRight(); }
     }
 }

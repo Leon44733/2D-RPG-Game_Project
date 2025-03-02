@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 2:22:37 pm
+ *  Last Modified: Sa 01.March 2025, 7:23:54 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -41,31 +41,32 @@ int main()
     std::unique_ptr<gfx::render::RendererManager> rManager = std::make_unique<gfx::render::RendererManager>(window->getSDLWindow());
 
     // Initialize TextureManager and load a texture
-    gfx::texture::TextureManager tManager;
-    tManager.load("assets/images/Background.png", "Background", rManager->getRenderer());
-    tManager.load("assets/images/Hotbar.png", "Hotbar", rManager->getRenderer());
-    tManager.load("assets/images/Health_Bar.png", "HealthBar", rManager->getRenderer());
-    tManager.load("assets/images/Mana_Bar.png", "ManaBar", rManager->getRenderer());
+    std::unique_ptr<gfx::texture::TextureManager> tManager = std::make_unique<gfx::texture::TextureManager>();
+    tManager->load("assets/images/Background.png", "Background", rManager->getRenderer());
+    tManager->load("assets/images/Player_Character.png", "Player", rManager->getRenderer());
+    tManager->load("assets/images/Hotbar.png", "Hotbar", rManager->getRenderer());
+    tManager->load("assets/images/Health_Bar.png", "HealthBar", rManager->getRenderer());
+    tManager->load("assets/images/Mana_Bar.png", "ManaBar", rManager->getRenderer());
     
     // Create a GUI element using the texture from the TextureManager
-    SDL_Texture* bgTexture = tManager.getTexture("Background");
-    SDL_Texture* hotBarTexture = tManager.getTexture("Hotbar");
-    SDL_Texture* healthBarTexture = tManager.getTexture("HealthBar");
-    SDL_Texture* manaBarTexture = tManager.getTexture("ManaBar");
-
+    SDL_Texture* bgTexture = tManager->getTexture("Background");
+    SDL_Texture* hotBarTexture = tManager->getTexture("Hotbar");
+    SDL_Texture* healthBarTexture = tManager->getTexture("HealthBar");
+    SDL_Texture* manaBarTexture = tManager->getTexture("ManaBar");
+    
     // Create a GUI element and add it to the RendererManager
     std::shared_ptr<ui::elem::TextureElement> bgElem = std::make_shared<ui::elem::TextureElement>(bgTexture);
-
+    
     std::shared_ptr<ui::elem::TextureElement> hotBarElem = std::make_shared<ui::elem::TextureElement>(hotBarTexture);
     int hotBarX = (window->getWidth() - 192) / 2;   // center hotbar. 192 is the width of the hotbar
     int hotBarY = window->getHeight() - 32 - 10;    // center hotbar. 32 is the height of the hotbar
     hotBarElem->setElementPos(hotBarX, hotBarY);
-
+    
     std::shared_ptr<ui::elem::TextureElement> healthBarElem = std::make_shared<ui::elem::TextureElement>(healthBarTexture);
     int healthBarX = 10;
     int healthBarY = 10;
     healthBarElem->setElementPos(healthBarX, healthBarY);
-
+    
     std::shared_ptr<ui::elem::TextureElement> manaBarElem = std::make_shared<ui::elem::TextureElement>(manaBarTexture);
     int manaBarX = 10;
     int manaBarY = healthBarY + 32 + 5; // healthBarY + healthBarHeight + padding
@@ -76,8 +77,9 @@ int main()
     rManager->addRenderable(healthBarElem);
     rManager->addRenderable(manaBarElem);
 
+    
     // Initialize and run the game loop
-    kernel::GameLoop gameLoop(window, std::move(rManager));
+    kernel::GameLoop gameLoop(window, std::move(rManager), std::move(tManager));
     gameLoop.run();
 
     // Destruct window

@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:26 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:14:32 pm
+ *  Last Modified: Sa 01.March 2025, 6:55:05 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,8 +14,6 @@
 
 #ifndef TEXTURE_ELEMENT_H
 #define TEXTURE_ELEMENT_H
-
-#include <SDL.h>
 
 #include "ui/elements/include/i_gui_element.h"
 
@@ -49,8 +47,9 @@ namespace ui
 
         /**
          * @brief Update texture element.
+         * TODO: This function is not implemented yet.
          */
-        void update() override; //TODO
+        void update() override;
         
         /**
          * @brief Set size of element.
