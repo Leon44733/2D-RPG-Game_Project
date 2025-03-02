@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:52:12 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 6:51:01 pm
+ *  Last Modified: Sa 01.March 2025, 7:54:14 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -42,7 +42,7 @@ namespace entities
                  * @param aSpeed speed
                  * @param aTexture texture
                  */
-                Character(int aStartX, int aStartY, int aSpeed, SDL_Texture* aTexture);
+                Character(int aStartX, int aStartY, float aSpeed, SDL_Texture* aTexture);
 
                 /**
                  * @brief Destroy Character object.
@@ -84,7 +84,7 @@ namespace entities
                 SDL_Point mPos;         // position of character
                 int mWidth;             // width of character
                 int mHeight;            // height of character
-                int mSpeed;             // speed of character
+                float mSpeed;           // speed of character
                 SDL_Texture* mTexture;  // texture of character
         };
     }

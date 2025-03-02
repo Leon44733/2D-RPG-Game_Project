@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:11:00 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 7:25:18 pm
+ *  Last Modified: Sa 01.March 2025, 8:03:34 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -69,14 +69,16 @@ namespace kernel
             
             /**
              * @brief Check for input from the user.
+             * @param aDeltaTime delta time
              */
-            void checkForInput();
+            void checkForInput(float aDeltaTime);
             
             std::shared_ptr<ui::Window> mSDLWindow;                             // shared pointer to window object
             std::unique_ptr<gfx::render::RendererManager> mRManager;            // unique pointer to renderer manager object
             std::unique_ptr<gfx::texture::TextureManager> mTManager;            // texture manager object
             std::shared_ptr<entities::characters::PlayerCharacter> mPlayer;     // player character object
             input::KeyInput mKeyInput;                                          // key input object
+            Uint32 mLastTime;                                                   // last time
     };
 }
 

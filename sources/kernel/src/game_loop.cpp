@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 7:27:03 pm
+ *  Last Modified: Sa 01.March 2025, 7:58:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -22,11 +22,12 @@ namespace kernel
     GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRManager, std::unique_ptr<gfx::texture::TextureManager> aTManager)  :
         mSDLWindow(aSDLWindow),
         mRManager(std::move(aRManager)),
-        mTManager(std::move(aTManager))
+        mTManager(std::move(aTManager)),
+        mLastTime(SDL_GetTicks())
         {
             // create player character
             SDL_Texture* playerTexture = mTManager->getTexture("Player");
-            mPlayer = std::make_shared<entities::characters::PlayerCharacter>(0, 0, 1, playerTexture);
+            mPlayer = std::make_shared<entities::characters::PlayerCharacter>(0, 0, 100.0f, playerTexture);
             mRManager->addRenderable(mPlayer);
         }
         
@@ -62,9 +63,14 @@ namespace kernel
 
     void GameLoop::update()
     {
+        // calculate delta time
+        Uint32 currentTime = SDL_GetTicks();
+        float deltaTime = (currentTime - mLastTime) / 1000.0f;   // convert to seconds
+        mLastTime = currentTime;
+
         // update key input
         mKeyInput.update();
-        checkForInput();
+        checkForInput(deltaTime);
     }
     
     void GameLoop::handleEvents()
@@ -73,11 +79,11 @@ namespace kernel
         // for example: on key press, on mouse click, etc. for starting a menu etc.
     }
 
-    void GameLoop::checkForInput()
+    void GameLoop::checkForInput(float aDeltaTime)
     {
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { mPlayer->moveUp(); }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { mPlayer->moveDown(); }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { mPlayer->moveLeft(); }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { mPlayer->moveRight(); }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { mPlayer->moveUp(aDeltaTime); }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { mPlayer->moveDown(aDeltaTime); }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { mPlayer->moveLeft(aDeltaTime); }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { mPlayer->moveRight(aDeltaTime); }
     }
 }
