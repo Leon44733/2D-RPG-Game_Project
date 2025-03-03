@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 2:22:37 pm
+ *  Last Modified: Mo 03.March 2025, 11:54:54 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -28,8 +28,7 @@ int main()
     std::cout << "Hello World!" << std::endl;
 
     // create, configure and initialize window
-    std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>();
-    window->setSize(640, 360);
+    std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(640, 360);
     if(!window->init())
     {
         window->destruct();
