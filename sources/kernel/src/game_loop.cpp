@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 7:27:03 pm
+ *  Last Modified: We 05.March 2025, 2:34:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 #include <iostream>
 
 #include "kernel/include/game_loop.h"
+#include "kernel/include/camera.h"
 
 namespace kernel
 {
@@ -24,9 +25,12 @@ namespace kernel
         mRManager(std::move(aRManager)),
         mTManager(std::move(aTManager))
         {
+            // add player camera
+            mCamera = Camera(aSDLWindow.get()->getWidth(), aSDLWindow.get()->getHeight(), 2000, 2000);
+
             // create player character
             SDL_Texture* playerTexture = mTManager->getTexture("Player");
-            mPlayer = std::make_shared<entities::characters::PlayerCharacter>(0, 0, 1, playerTexture);
+            mPlayer = std::make_shared<entities::characters::PlayerCharacter>(0, 0, 1, playerTexture, mCamera);
             mRManager->addRenderable(mPlayer);
         }
         
@@ -62,6 +66,15 @@ namespace kernel
 
     void GameLoop::update()
     {
+        // adjustment of the rendering position by the camera
+        int renderX = mPlayer->getXPos() - mCamera.getXPos();
+        int renderY = mPlayer->getYPos() - mCamera.getYPos();
+
+        mCamera.update(mPlayer->getXPos(), mPlayer->getYPos());
+
+        mPlayer.get()->render(mPlayer->getTexture(), renderX, renderY, mPlayer->getWidth(), mPlayer->getHeight());
+        mRManager->getBackgroundRenderer().render(backgroundTexture, -mCamera.getXPos(), -mCamera.getYPos());
+
         // update key input
         mKeyInput.update();
         checkForInput();
