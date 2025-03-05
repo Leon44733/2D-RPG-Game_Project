@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:03 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 6:55:28 pm
+ *  Last Modified: Sa 01.March 2025, 8:02:22 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -36,7 +36,7 @@ namespace entities
                  * @param aSpeed speed
                  * @param aTexture texture
                  */
-                PlayerCharacter(int aStartX, int aStartY, int aSpeed, SDL_Texture* aTexture);
+                PlayerCharacter(int aStartX, int aStartY, float aSpeed, SDL_Texture* aTexture);
                 
                 /**
                  * @brief Destroy PlayerCharacter object.
@@ -59,26 +59,30 @@ namespace entities
                 /**
                  * @brief Move player character up.
                  * Decreases y-position by speed.
+                 * @param aDeltaTime time since last frame
                  */
-                void moveUp();
+                void moveUp(float aDeltaTime);
 
                 /**
                  * @brief Move player character down.
                  * Increases y-position by speed.
+                 * @param aDeltaTime time since last frame
                  */
-                void moveDown();
+                void moveDown(float aDeltaTime);
 
                 /**
                  * @brief Move player character left.
                  * Decreases x-position by speed.
+                 * @param aDeltaTime time since last frame
                  */
-                void moveLeft();
+                void moveLeft(float aDeltaTime);
 
                 /**
                  * @brief Move player character right.
                  * Increases x-position by speed.
+                 * @param aDeltaTime time since last frame
                  */
-                void moveRight();
+                void moveRight(float aDeltaTime);
         };
     }
 }

@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:01:46 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 6:46:21 pm
+ *  Last Modified: Sa 01.March 2025, 7:53:31 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -18,7 +18,7 @@ namespace entities
 {
     namespace characters
     {
-        Character::Character(int aStartX, int aStartY, int aSpeed, SDL_Texture* aTexture)
+        Character::Character(int aStartX, int aStartY, float aSpeed, SDL_Texture* aTexture)
             : mPos({aStartX, aStartY}), mSpeed(aSpeed), mTexture(aTexture)
         {
             // Query texture for its width and height
