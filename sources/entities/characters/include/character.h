@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:52:12 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 6:51:01 pm
+ *  Last Modified: Th 06.March 2025, 10:47:27 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -31,7 +31,7 @@ namespace entities
 {
     namespace characters
     {
-        class Character : public gfx::render::IRenderable
+        class Character : public gfx::render::Renderable
         {
             public:
                 /**

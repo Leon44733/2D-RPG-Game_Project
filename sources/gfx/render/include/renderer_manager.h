@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 12:47:07 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 3:32:53 pm
+ *  Last Modified: Th 06.March 2025, 10:47:27 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -49,7 +49,7 @@ namespace gfx
                  * @brief Add renderable element to the renderer.
                  * @param aElement shared pointer to renderable element
                  */
-                void addRenderable(std::shared_ptr<IRenderable> aElement);
+                void addRenderable(std::shared_ptr<Renderable> aElement);
 
                 /**
                  * @brief Render all renderable elements in the renderables vector.
@@ -83,7 +83,7 @@ namespace gfx
 
             private:
                 SDL_Renderer* mRenderer;                                    // sdl renderer
-                std::vector<std::shared_ptr<IRenderable>> mRenderables;     // vector of renderable elements
+                std::vector<std::shared_ptr<Renderable>> mRenderables;     // vector of renderable elements
                 GuiRenderer mGuiRenderer;                                   // gui renderer
                 CharacterRenderer mCharacterRenderer;                       // character renderer
         };

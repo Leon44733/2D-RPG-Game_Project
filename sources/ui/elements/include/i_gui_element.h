@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 11:57:00 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:14:43 pm
+ *  Last Modified: Th 06.March 2025, 10:47:27 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -33,9 +33,9 @@ namespace ui
   {
     /**
      * @brief Interface class for GUI elements.
-     * It also inherits from IRenderable class.
+     * It also inherits from Renderable class.
      */
-    class IGuiElement : public gfx::render::IRenderable
+    class IGuiElement : public gfx::render::Renderable
     {
       public:
         /**

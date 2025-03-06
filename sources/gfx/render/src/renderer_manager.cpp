@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 3:33:37 pm
+ *  Last Modified: Th 06.March 2025, 10:47:27 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -55,7 +55,7 @@ namespace gfx
             return mCharacterRenderer;
         }
 
-        void RendererManager::addRenderable(std::shared_ptr<IRenderable> aElement)
+        void RendererManager::addRenderable(std::shared_ptr<Renderable> aElement)
         {
             mRenderables.push_back(aElement);
         }
