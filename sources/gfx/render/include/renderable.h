@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:36:33 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 06.March 2025, 10:50:38 am
+ *  Last Modified: Sa 08.March 2025, 6:34:41 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,6 +14,11 @@
 
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
+
+#include <SDL.h>
+#include <memory>
+
+#include "gfx/render/include/i_camera.h"
 
 namespace gfx
 {
@@ -29,37 +34,43 @@ namespace gfx
     class Renderable
     {
       public:
-        /**
-         * @brief Construct new Renderable object.
-         * Set visibility true by default.
-         */
-        Renderable() : mVisible(true) {}
 
         /**
          * @brief Render object.
          * @param aRenderer renderer manager
          */
         virtual void render(RendererManager& aRenderer) = 0;
+        virtual void render(RendererManager& aRenderer, std::shared_ptr<ICamera> aCamera) = 0;
 
-        /**
-         * @brief Update object.
-         */
-        virtual void update() = 0; // TODO
+        SDL_Texture* getTexture() const {return mTexture;}
+      
+        void setElementSize(int aWidth, int aHeight) {mWidth = aWidth; mHeight = aHeight;}
+
+        int getElementWidth() const {return mWidth;}
+        int getElementHeigth() const {return mHeight;}
+
+        void setElementPos(int x, int y) {mPos.x = x; mPos.y = y;}
+
+        SDL_Point getElementPos() const {return mPos;}
 
         /**
          * @brief Set visibility of object.
          * @param aVisible visibility
          */
-        void setVisible(bool aVisible) {mVisible = aVisible;};
+        void setVisible(bool aVisible) {mVisible = aVisible;}
 
         /**
          * @brief Get visibility of object.
          * @return visibility
          */
-        bool isVisible() const {return mVisible;};
+        bool isVisible() const {return mVisible;}
 
-      private:
-        bool mVisible;   // visibility of object
+      protected:
+        bool mVisible = true;   // visibility of object
+        SDL_Point mPos{0, 0};   // x-pos and y-pos of element
+        SDL_Texture* mTexture;  // texture to render
+        int mWidth;             // width
+        int mHeight;            // height
     };
   }
 }

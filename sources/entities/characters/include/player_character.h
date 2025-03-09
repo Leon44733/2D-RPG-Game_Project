@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:03 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 6:55:28 pm
+ *  Last Modified: Sa 08.March 2025, 6:38:48 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 #define PLAYER_CHARACTER_H
 
 #include "entities/characters/include/character.h"
+#include "gfx/render/include/renderer_manager.h"
 
 namespace entities
 {
@@ -29,6 +30,12 @@ namespace entities
         class PlayerCharacter : public Character
         {
             public:
+
+                /**
+                 * @brief Construct new PlayerCharacter object.
+                 */
+                PlayerCharacter();
+
                 /**
                  * @brief Construct new PlayerCharacter object.
                  * @param aStartX x-position
@@ -48,13 +55,8 @@ namespace entities
                  * @brief Render player character.
                  * @param aRenderer renderer manager
                  */
-                void render(gfx::render::RendererManager& aRenderer) override;
-
-                /**
-                 * @brief Update player character.
-                 * TODO: This function is not implemented yet.
-                 */
-                void update() override {};
+                void render(gfx::render::RendererManager& aRenderer) override {}; // not needed for PlayerCharacter
+                void render(gfx::render::RendererManager& aRenderer, std::shared_ptr<gfx::render::ICamera> aCamera) override;
 
                 /**
                  * @brief Move player character up.

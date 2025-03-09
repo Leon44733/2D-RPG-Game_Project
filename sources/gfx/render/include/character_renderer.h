@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:23:47 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 7:35:07 pm
+ *  Last Modified: Fr 07.March 2025, 10:55:30 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,10 @@
 #define CHARACTER_RENDERER_H
 
 #include <SDL.h>
+#include <memory>
+
+#include "gfx/render/include/renderable.h"
+#include "gfx/render/include/i_camera.h"
 
 namespace gfx
 {
@@ -39,14 +43,13 @@ namespace gfx
                 ~CharacterRenderer();
 
                 /**
-                 * @brief Render character texture at position.
-                 * @param aTexture texture to render
-                 * @param x x-position
-                 * @param y y-position
-                 * @param aWidth texture width
-                 * @param aHeight texture height
+                 * @brief Render player character texture at position.
+                 * @param aCharacter player character to render
+                 * @param aCamera camera for positioning
                  */
-                void render(SDL_Texture* aTexture, int x, int y, int aWidth, int aHeight);
+                void render(const Renderable& aPlayer, std::shared_ptr<ICamera> aCamera);
+
+                // void render(const Renderable& aCharacter);
 
             private:
                 SDL_Renderer* mRenderer;    // SDL renderer
