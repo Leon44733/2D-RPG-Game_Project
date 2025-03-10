@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:42:25 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 27.February 2025, 1:19:52 pm
+ *  Last Modified: Th 06.March 2025, 3:48:20 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,8 @@
 #define GUI_RENDERER_H
 
 #include <SDL.h>
+
+#include "gfx/render/include/renderable.h"
 
 namespace gfx
 {
@@ -31,7 +33,7 @@ namespace gfx
          * @brief Construct new GuiRenderer object.
          * @param aRenderer SDL renderer
          */
-        explicit GuiRenderer(SDL_Renderer* aRenderer);
+        GuiRenderer(SDL_Renderer* aRenderer);
         
         /**
          * @brief Destroy GuiRenderer object.
@@ -39,17 +41,13 @@ namespace gfx
         ~GuiRenderer();
 
         /**
-         * @brief Render texture at position.
-         * @param aTexture texture to render
-         * @param x x-position
-         * @param y y-position
-         * @param aWidth texture width
-         * @param aHeight texture height
+         * @brief Render gui element.
+         * @param aElement gui element to render
          */
-        void render(SDL_Texture* aTexture, int x, int y, int aWidth, int aHeight);
+        void render(const Renderable& aElem);
 
       private:
-        SDL_Renderer* mRenderer;    // SDL renderer
+        SDL_Renderer* mRenderer;  // SDL renderer
     };
   }
 }

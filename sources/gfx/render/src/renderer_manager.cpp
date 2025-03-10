@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:37:48 pm
+ *  Last Modified: Mo 10.March 2025, 2:21:09 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,7 +13,6 @@
  */
 
 #include "gfx/render/include/renderer_manager.h"
-#include "gfx/render/include/i_renderable.h"
 #include "utils/include/logger.h"
 
 namespace gfx
@@ -22,7 +21,9 @@ namespace gfx
     {
         RendererManager::RendererManager(SDL_Window* aWindow) :
             mRenderer(SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED)),
-            mGuiRenderer(mRenderer)
+            mBgRenderer(mRenderer),
+            mGuiRenderer(mRenderer),
+            mCharRenderer(mRenderer)
         {
             if(!mRenderer)
             {
@@ -44,36 +45,82 @@ namespace gfx
             return mRenderer;
         }
 
+        BackgroundRenderer& RendererManager::getBgRenderer()
+        {
+            return mBgRenderer;
+        }
+
+        void RendererManager::addBgRenderable(std::shared_ptr<Renderable> aElem, std::string aName)
+        {
+            mBgElements[aName] = aElem;
+        }
+
+        Renderable& RendererManager::getBgElement(std::string aName)
+        {
+            return *mBgElements[aName];
+        }
+
+        void RendererManager::renderBgElement(std::string aName, std::shared_ptr<ICamera> aCamera)
+        {
+            SDL_RenderClear(mRenderer);
+            if(mBgElements.find(aName) == mBgElements.end())
+            {
+                utils::log::Logger::error("Background element not found with name: " + aName);
+            }
+
+            if(mBgElements[aName]->isVisible())
+            {
+                mBgElements[aName]->render(*this, aCamera);
+            }
+        }
+        
         GuiRenderer& RendererManager::getGuiRenderer()
         {
             return mGuiRenderer;
         }
 
-        void RendererManager::addRenderable(std::shared_ptr<IRenderable> aElement)
+        CharacterRenderer& RendererManager::getCharRenderer()
         {
-            mRenderables.push_back(aElement);
+            return mCharRenderer;
         }
 
-        void RendererManager::renderAll()
+        void RendererManager::addCharRenderable(std::shared_ptr<Renderable> aElem, std::string aName)
+        {
+            mCharElements[aName] = aElem;
+        }
+
+        Renderable& RendererManager::getCharElement(std::string aName)
+        {
+            return *mCharElements[aName];
+        }
+
+        void RendererManager::renderCharElement(std::string aName)
+        {
+            if(mCharElements.find(aName) == mCharElements.end())
+            {
+                utils::log::Logger::error("Character element not found with name: " + aName);
+            }
+
+            if(mCharElements[aName]->isVisible())
+            {
+                mCharElements[aName]->render(*this);
+            }
+        }
+
+        void RendererManager::addGuiRenderable(std::shared_ptr<Renderable> aElem)
+        {
+            mGuiElements.push_back(aElem);
+        }
+
+        void RendererManager::renderAllGuiElem()
         {
             // render all renderable elements
-            SDL_RenderClear(mRenderer);
-            for(auto& element : mRenderables)
+            for(auto& element : mGuiElements)
             {
                 if(element->isVisible())
                 {
                     element->render(*this);
                 }
-            }
-            SDL_RenderPresent(mRenderer);
-        }
-
-        void RendererManager::updateAll()
-        {
-            // update all renderable elements
-            for(auto& element : mRenderables)
-            {
-                element->update();
             }
         }
     }

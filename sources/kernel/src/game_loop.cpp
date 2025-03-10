@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 6:48:09 pm
+ *  Last Modified: Mo 10.March 2025, 2:25:20 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,14 +13,21 @@
  */
 
 #include <SDL.h>
-#include <iostream>
 
 #include "kernel/include/game_loop.h"
+#include "kernel/include/camera.h"
 
 namespace kernel
 {
-    GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRManager)  :
-        mSDLWindow(aSDLWindow), mRManager(std::move(aRManager)) {}
+    GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRManager, std::unique_ptr<gfx::texture::TextureManager> aTManager)  :
+        mSDLWindow(aSDLWindow),
+        mRManager(std::move(aRManager)),
+        mTManager(std::move(aTManager))
+        {
+            // add player camera
+            mCamera = std::make_shared<Camera>(aSDLWindow.get()->getWidth(), aSDLWindow.get()->getHeight(), mRManager->getBgElement("Background_1").getElementWidth(), mRManager->getBgElement("Background_1").getElementHeight());
+        }
+        
     GameLoop::~GameLoop() {}
 
     void GameLoop::run()
@@ -38,37 +45,40 @@ namespace kernel
                 {
                     running = false;
                 }
-                handleEvents(); // TODO
             }
 
-            update();
-            render();
+            updateAndRender();
         }
     }
 
-    void GameLoop::render()
-    {
-        mRManager->renderAll();
-    }
+    void GameLoop::updateAndRender()
+    {              
+        // render all elements in window
+        SDL_RenderClear(mRManager->getRenderer());
+        mRManager->renderBgElement("Background_1", mCamera);
+        mRManager->renderAllGuiElem();
+        mRManager->renderCharElement("Player");
 
-    void GameLoop::update()
-    {
         // update key input
         mKeyInput.update();
         checkForInput();
-    }
-    
-    void GameLoop::handleEvents()
-    {
-        // TODO: Handle events for the game
-        // for example: on key press, on mouse click, etc. for starting a menu etc.
+
+        SDL_RenderPresent(mRManager->getRenderer());
     }
 
-    void GameLoop::checkForInput() // TODO
+    void GameLoop::checkForInput()
     {
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { /* nach oben bewegen */ }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { /* nach links bewegen */ }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { /* nach unten bewegen */ }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { /* nach rechts bewegen */ }
+        int moveX = 0, moveY = 0;
+        const int speed = 1;  // movement speed
+
+        // check for pressed keys
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { moveY -= speed; }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { moveY += speed; }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { moveX -= speed; }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { moveX += speed; }
+
+        mCamera->update(moveX, moveY);
+
+        SDL_Delay(1);
     }
 }

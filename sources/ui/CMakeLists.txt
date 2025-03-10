@@ -5,7 +5,7 @@
 # Created Date: Th 02.January 2025, 2:28:56 pm
 # Author: lbarwe
 # -----
-# Last Modified: Sa 01.March 2025, 2:28:31 pm
+# Last Modified: Sa 08.March 2025, 5:14:18 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,6 +17,7 @@ add_library(ui STATIC)
 target_sources(ui PRIVATE
     window/src/window.cpp
     elements/src/texture_element.cpp
+    elements/src/background_element.cpp
 )
 
 # include directories for this module

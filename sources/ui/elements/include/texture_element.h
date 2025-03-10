@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:26 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 1:14:32 pm
+ *  Last Modified: Mo 10.March 2025, 1:27:44 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,7 +17,9 @@
 
 #include <SDL.h>
 
-#include "ui/elements/include/i_gui_element.h"
+#include "gfx/render/include/renderer_manager.h"
+#include "gfx/render/include/renderable.h"
+#include "gfx/render/include/i_camera.h"
 
 namespace ui
 {
@@ -25,9 +27,9 @@ namespace ui
   {
     /**
      * @brief TextureElement class for rendering textures on the screen.
-     * It inherits from IGuiElement class.
+     * It inherits from Renderable class.
      */
-    class TextureElement : public IGuiElement
+    class TextureElement : public gfx::render::Renderable
     {
       public:
         /**
@@ -48,34 +50,11 @@ namespace ui
         void render(gfx::render::RendererManager& aRenderer) override;
 
         /**
-         * @brief Update texture element.
+         * @brief ATTENTION: This function is not needed for TextureElement.
+         * @param aRenderer renderer manager
+         * @param aCamera camera
          */
-        void update() override; //TODO
-        
-        /**
-         * @brief Set size of element.
-         * @param aWidth element width
-         * @param aHeight element height
-         */
-        void setElementSize(int aWidth, int aHeight) override;
-        
-        /**
-         * @brief Set position of element.
-         * @param x x-position
-         * @param y y-position
-         */
-        void setElementPos(int x, int y) override;
-
-        /**
-         * @brief Handle events for the element.
-         * @param aEvent event to handle
-         */
-        void handleEvent(SDL_Event& aEvent) override; //TODO
-
-      private:
-        SDL_Texture* mTexture;    // texture to render
-        int mWidth;               // element width
-        int mHeight;              // element height
+        void render(gfx::render::RendererManager& aRenderer, std::shared_ptr<gfx::render::ICamera> aCamera) override {};
     };
   }
 }
