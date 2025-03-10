@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 2:12:45 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 7:30:42 pm
+ *  Last Modified: Mo 10.March 2025, 2:11:02 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -18,14 +18,14 @@ namespace gfx
 {
   namespace render
   {
-    GuiRenderer::GuiRenderer(SDL_Renderer* aRenderer) :mRenderer(aRenderer) {}
+    GuiRenderer::GuiRenderer(SDL_Renderer* aRenderer) : mRenderer(aRenderer) {}
     GuiRenderer::~GuiRenderer() {}
 
-    void GuiRenderer::render(SDL_Texture* aTexture, int x, int y, int aWidth, int aHeight)
+    void GuiRenderer::render(const Renderable& aElem)
     {
       // render texture at position
-      SDL_Rect dstRect = { x, y, aWidth, aHeight };
-      SDL_RenderCopy(mRenderer, aTexture, nullptr, &dstRect);
+      SDL_Rect dstRect = { aElem.getElementPos().x , aElem.getElementPos().y, aElem.getElementWidth(), aElem.getElementHeight() };
+      SDL_RenderCopy(mRenderer, aElem.getTexture(), nullptr, &dstRect);
     }
   }
 }

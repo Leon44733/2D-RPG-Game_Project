@@ -5,7 +5,7 @@
 # Created Date: Mo 17.February 2025, 3:39:51 pm
 # Author: lbarwe
 # -----
-# Last Modified: Sa 01.March 2025, 4:10:12 pm
+# Last Modified: Th 06.March 2025, 2:35:08 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,6 +17,7 @@ add_library(gfx STATIC)
 target_sources(gfx PRIVATE
     texture/src/texture_manager.cpp
     render/src/renderer_manager.cpp
+    render/src/background_renderer.cpp
     render/src/gui_renderer.cpp
     render/src/character_renderer.cpp
 )

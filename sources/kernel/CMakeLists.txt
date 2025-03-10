@@ -5,7 +5,7 @@
 # Created Date: Fr 31.January 2025, 7:34:39 pm
 # Author: lbarwe
 # -----
-# Last Modified: Sa 01.March 2025, 3:36:00 pm
+# Last Modified: We 05.March 2025, 11:44:01 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 add_library(kernel STATIC)
 target_sources(kernel PRIVATE
     src/game_loop.cpp
+    src/camera.cpp
     input/src/key_input.cpp
 )
 

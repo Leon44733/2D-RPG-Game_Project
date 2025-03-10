@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:03 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 6:55:28 pm
+ *  Last Modified: Mo 10.March 2025, 1:52:59 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 #define PLAYER_CHARACTER_H
 
 #include "entities/characters/include/character.h"
+#include "gfx/render/include/renderer_manager.h"
 
 namespace entities
 {
@@ -24,19 +25,23 @@ namespace entities
         /**
          * @brief PlayerCharacter class for rendering the player character.
          * Inherits from Character class.
-         * Provides functions for moving the player character.
          */
         class PlayerCharacter : public Character
         {
             public:
+
+                /**
+                 * @brief Construct new PlayerCharacter object.
+                 */
+                PlayerCharacter();
+
                 /**
                  * @brief Construct new PlayerCharacter object.
                  * @param aStartX x-position
                  * @param aStartY y-position
-                 * @param aSpeed speed
                  * @param aTexture texture
                  */
-                PlayerCharacter(int aStartX, int aStartY, int aSpeed, SDL_Texture* aTexture);
+                PlayerCharacter(int aStartX, int aStartY, SDL_Texture* aTexture);
                 
                 /**
                  * @brief Destroy PlayerCharacter object.
@@ -51,34 +56,11 @@ namespace entities
                 void render(gfx::render::RendererManager& aRenderer) override;
 
                 /**
-                 * @brief Update player character.
-                 * TODO: This function is not implemented yet.
+                 * @brief ATTENTION: This function is not needed for PlayerCharacter.
+                 * @param aRenderer renderer manager
+                 * @param aCamera camera
                  */
-                void update() override {};
-
-                /**
-                 * @brief Move player character up.
-                 * Decreases y-position by speed.
-                 */
-                void moveUp();
-
-                /**
-                 * @brief Move player character down.
-                 * Increases y-position by speed.
-                 */
-                void moveDown();
-
-                /**
-                 * @brief Move player character left.
-                 * Decreases x-position by speed.
-                 */
-                void moveLeft();
-
-                /**
-                 * @brief Move player character right.
-                 * Increases x-position by speed.
-                 */
-                void moveRight();
+                void render(gfx::render::RendererManager& aRenderer, std::shared_ptr<gfx::render::ICamera> aCamera) override {};
         };
     }
 }

@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 7:27:03 pm
+ *  Last Modified: Mo 10.March 2025, 2:25:20 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,9 +13,9 @@
  */
 
 #include <SDL.h>
-#include <iostream>
 
 #include "kernel/include/game_loop.h"
+#include "kernel/include/camera.h"
 
 namespace kernel
 {
@@ -24,10 +24,8 @@ namespace kernel
         mRManager(std::move(aRManager)),
         mTManager(std::move(aTManager))
         {
-            // create player character
-            SDL_Texture* playerTexture = mTManager->getTexture("Player");
-            mPlayer = std::make_shared<entities::characters::PlayerCharacter>(0, 0, 1, playerTexture);
-            mRManager->addRenderable(mPlayer);
+            // add player camera
+            mCamera = std::make_shared<Camera>(aSDLWindow.get()->getWidth(), aSDLWindow.get()->getHeight(), mRManager->getBgElement("Background_1").getElementWidth(), mRManager->getBgElement("Background_1").getElementHeight());
         }
         
     GameLoop::~GameLoop() {}
@@ -47,37 +45,40 @@ namespace kernel
                 {
                     running = false;
                 }
-                handleEvents(); // TODO
             }
 
-            update();
-            render();
+            updateAndRender();
         }
     }
 
-    void GameLoop::render()
-    {
-        mRManager->renderAll();
-    }
+    void GameLoop::updateAndRender()
+    {              
+        // render all elements in window
+        SDL_RenderClear(mRManager->getRenderer());
+        mRManager->renderBgElement("Background_1", mCamera);
+        mRManager->renderAllGuiElem();
+        mRManager->renderCharElement("Player");
 
-    void GameLoop::update()
-    {
         // update key input
         mKeyInput.update();
         checkForInput();
-    }
-    
-    void GameLoop::handleEvents()
-    {
-        // TODO: Handle events for the game
-        // for example: on key press, on mouse click, etc. for starting a menu etc.
+
+        SDL_RenderPresent(mRManager->getRenderer());
     }
 
     void GameLoop::checkForInput()
     {
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { mPlayer->moveUp(); }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { mPlayer->moveDown(); }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { mPlayer->moveLeft(); }
-        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { mPlayer->moveRight(); }
+        int moveX = 0, moveY = 0;
+        const int speed = 1;  // movement speed
+
+        // check for pressed keys
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_W)) { moveY -= speed; }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_S)) { moveY += speed; }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { moveX -= speed; }
+        if (mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { moveX += speed; }
+
+        mCamera->update(moveX, moveY);
+
+        SDL_Delay(1);
     }
 }

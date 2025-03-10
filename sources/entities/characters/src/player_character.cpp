@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:13 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 6:56:02 pm
+ *  Last Modified: Mo 10.March 2025, 1:55:03 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,43 +13,22 @@
  */
 
 #include "entities/characters/include/player_character.h"
-#include "gfx/render/include/renderer_manager.h"
 
 namespace entities
 {
     namespace characters
     {
-        PlayerCharacter::PlayerCharacter(int aStartX, int aStartY, int aSpeed, SDL_Texture* aTexture)
-            : Character(aStartX, aStartY, aSpeed, aTexture) {}
+        PlayerCharacter::PlayerCharacter() : Character() {}
+        PlayerCharacter::PlayerCharacter(int aStartX, int aStartY, SDL_Texture* aTexture)
+            : Character(aStartX, aStartY, aTexture) {}
         PlayerCharacter::~PlayerCharacter() {}
 
         void PlayerCharacter::render(gfx::render::RendererManager& aRenderer)
         {
-            // render player character
             if(mTexture)
             {
-                aRenderer.getCharacterRenderer().render(this->getTexture(), this->getXPos(), this->getYPos(), this->getWidth(), this->getHeight());
+                aRenderer.getCharRenderer().render(*this);
             }
-        }
-
-        void PlayerCharacter::moveUp()
-        {
-            mPos.y -= mSpeed;
-        }
-
-        void PlayerCharacter::moveDown()
-        {
-            mPos.y += mSpeed;
-        }
-
-        void PlayerCharacter::moveLeft()
-        {
-            mPos.x -= mSpeed;
-        }
-
-        void PlayerCharacter::moveRight()
-        {
-            mPos.x += mSpeed;
         }
     }
 }

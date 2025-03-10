@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:11:00 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 7:25:18 pm
+ *  Last Modified: Mo 10.March 2025, 1:32:29 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,6 +19,7 @@
 
 #include "ui/window/include/window.h"
 #include "gfx/render/include/renderer_manager.h"
+#include "gfx/render/include/i_camera.h"
 #include "gfx/texture/include/texture_manager.h"
 #include "kernel/input/include/key_input.h"
 #include "entities/characters/include/player_character.h"
@@ -51,21 +52,11 @@ namespace kernel
             void run();
 
         private:
+
             /**
-             * @brief Render all elements of the game.
+             * @brief Update and render all elements.
              */
-            void render();
-            
-            /**
-             * @brief Update game logic.
-             */
-            void update();
-            
-            /**
-             * @brief Handle events for the game.
-             * TODO: This function is not implemented yet.
-             */
-            void handleEvents();
+            void updateAndRender();
             
             /**
              * @brief Check for input from the user.
@@ -75,7 +66,8 @@ namespace kernel
             std::shared_ptr<ui::Window> mSDLWindow;                             // shared pointer to window object
             std::unique_ptr<gfx::render::RendererManager> mRManager;            // unique pointer to renderer manager object
             std::unique_ptr<gfx::texture::TextureManager> mTManager;            // texture manager object
-            std::shared_ptr<entities::characters::PlayerCharacter> mPlayer;     // player character object
+            std::shared_ptr<gfx::render::ICamera> mCamera;                      // camera object
+            entities::characters::PlayerCharacter mPlayer;                      // player character object
             input::KeyInput mKeyInput;                                          // key input object
     };
 }
