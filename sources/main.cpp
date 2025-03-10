@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 10.March 2025, 2:30:34 pm
+ *  Last Modified: Mo 10.March 2025, 2:39:20 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -31,7 +31,7 @@ int main()
 
     // create, configure and initialize window
     std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(640, 360);
-    std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(1920, 1080);
+    //std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(1920, 1080);
     if(!window->init())
     {
         window->destruct();
