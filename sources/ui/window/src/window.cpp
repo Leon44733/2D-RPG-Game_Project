@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 2:27:50 pm
+ *  Last Modified: Mo 03.March 2025, 11:58:02 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -20,7 +20,14 @@
 
 namespace ui
 {
-    Window::Window() : mSDLWindow(nullptr), mWidth(300), mHeight(800) {}
+    Window::Window() : mSDLWindow(nullptr), mWidth(800), mHeight(300) {}
+
+    Window::Window(int aWidth, int aHeight) : mSDLWindow(nullptr)
+    {
+        mWidth = aWidth;
+        mHeight = aHeight;
+    }
+    
     Window::~Window()
     {
         destruct();
@@ -65,10 +72,10 @@ namespace ui
         return true;
     }
 
-    void Window::setSize(int aWidth, int aHight)
+    void Window::setSize(int aWidth, int aHeight)
     {
         mWidth = aWidth;
-        mHeight = aHight;
+        mHeight = aHeight;
     }
 
     int Window::getWidth() const

@@ -30,9 +30,8 @@ int main()
     std::cout << "Hello World!" << std::endl;
 
     // create, configure and initialize window
-    std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>();
-    window->setSize(640, 360);
-    // window->setSize(1920, 1080);
+    std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(640, 360);
+    std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(1920, 1080);
     if(!window->init())
     {
         window->destruct();

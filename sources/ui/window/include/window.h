@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 01.March 2025, 1:46:52 pm
+ *  Last Modified: Mo 03.March 2025, 11:57:27 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -27,9 +27,16 @@ namespace ui
         public:
             /**
              * @brief Construct new Window object.
-             * Default window size is 300x800.
+             * Default window size is 800x300.
              */
             Window();
+
+            /**
+             * @brief Construct new Window object.
+             * @param aWidth window width
+             * @param aHight window height
+             */
+            Window(int aWidth, int aHeight);
 
             /**
              * @brief Destroy Window object.
@@ -53,9 +60,9 @@ namespace ui
             /**
              * @brief Set window size.
              * @param aWidth window width
-             * @param aHight window hight
+             * @param aHeight window hight
              */
-            void setSize(int aWidth, int aHight);
+            void setSize(int aWidth, int aHeight);
 
             /**
              * @brief Get window width.
@@ -77,8 +84,8 @@ namespace ui
 
         private:
             SDL_Window* mSDLWindow;     // sdl window
-            int mWidth;                 // window width. Default by constructor is 300
-            int mHeight;                // window height. Default by constructor is 800
+            int mWidth;                 // window width. Default by constructor is 800
+            int mHeight;                // window height. Default by constructor is 300
     };
 }
 
