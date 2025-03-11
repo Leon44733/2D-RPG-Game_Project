@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:03 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 10.March 2025, 1:52:59 pm
+ *  Last Modified: Tu 11.March 2025, 8:49:58 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -60,7 +60,7 @@ namespace entities
                  * @param aRenderer renderer manager
                  * @param aCamera camera
                  */
-                void render(gfx::render::RendererManager& aRenderer, std::shared_ptr<gfx::render::ICamera> aCamera) override {};
+                [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> aCamera) override {};
         };
     }
 }

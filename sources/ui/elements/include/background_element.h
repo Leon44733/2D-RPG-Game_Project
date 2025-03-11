@@ -5,7 +5,7 @@
  *  Created Date: Sa 08.March 2025, 4:49:27 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 10.March 2025, 1:28:10 pm
+ *  Last Modified: Tu 11.March 2025, 8:50:07 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -46,7 +46,7 @@
           * @brief ATTENTION: This function is not needed for BackgroundElement.
           * @param aRenderer renderer manager
           */
-         void render(gfx::render::RendererManager& aRenderer) override {};
+         [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer) override {};
          
          /**
           * @brief Render background element by passing the renderer manager and the camera.
