@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 8:47:34 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 22.February 2025, 12:32:54 pm
+ *  Last Modified: Fr 28.March 2025, 1:01:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <iostream>
+#include <string>
 
 namespace utils
 {
@@ -28,39 +28,44 @@ namespace utils
         {
             public:
                 /**
+                 * @brief Log message with info severity level.
+                 * @param aMsg message to log
+                 */
+                static void info(const std::string& aMsg);
+
+                /**
+                 * @brief Log message with warning severity level.
+                 * @param aMsg message to log
+                 */
+                static void warning(const std::string& aMsg);
+
+                /**
+                 * @brief Log message with error severity level.
+                 * @param aMsg message to log
+                 */
+                static void error(const std::string& aMsg);
+
+            private:
+                Logger() = delete;                          // prevent instantiation of logger
+                Logger(const Logger&) = delete;             // prevent copy-construction
+                Logger& operator=(const Logger&) = delete;  // prevent assignment
+
+                /**
                  * @brief Enum class for different severity levels.
                  */
                 enum class Level
                 {
-                    INFO,       // Info level
-                    WARNING,    // Warning level 
-                    ERROR       // Error level
+                    INFO,       // info level
+                    WARNING,    // warning level 
+                    ERROR       // error level
                 };
 
                 /**
                  * @brief Log message with severity level.
                  * @param aLevel severity level
-                 * @param aMessage message to log
+                 * @param aMsg message to log
                  */
-                static void log(Level aLevel, const std::string& aMessage);
-
-                /**
-                 * @brief Log message with info severity level.
-                 * @param aMessage message to log
-                 */
-                static void info(const std::string& aMessage);
-
-                /**
-                 * @brief Log message with warning severity level.
-                 * @param aMessage message to log
-                 */
-                static void warning(const std::string& aMessage);
-
-                /**
-                 * @brief Log message with error severity level.
-                 * @param aMessage message to log
-                 */
-                static void error(const std::string& aMessage);
+                static void log(Level aLevel, const std::string& aMsg);
         };
     }
 }
