@@ -5,7 +5,7 @@
 # Created Date: Sa 01.March 2025, 3:02:36 pm
 # Author: lbarwe
 # -----
-# Last Modified: Sa 01.March 2025, 7:03:05 pm
+# Last Modified: We 18.June 2025, 11:36:48 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -24,5 +24,5 @@ target_include_directories(entities PUBLIC
     ${CMAKE_SOURCE_DIR}/sources
 )
 
-# link SDL2 with entities library
+# link gfx and SDL2 with entities library
 target_link_libraries(entities PRIVATE gfx SDL2::SDL2)
