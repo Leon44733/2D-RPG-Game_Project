@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:01:46 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 10.March 2025, 1:49:02 pm
+ *  Last Modified: We 18.June 2025, 10:43:05 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -25,7 +25,7 @@ namespace entities
             mPos.y = aStartY;
             mTexture = aTexture;
 
-            // Query texture for its width and height
+            // query texture for its width and height
             SDL_QueryTexture(mTexture, nullptr, nullptr, &mWidth, &mHeight);
         }
 

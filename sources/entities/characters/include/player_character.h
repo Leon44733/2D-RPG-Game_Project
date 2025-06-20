@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:03 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 11.March 2025, 8:49:58 am
+ *  Last Modified: We 18.June 2025, 10:41:59 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -23,8 +23,8 @@ namespace entities
     namespace characters
     {
         /**
-         * @brief PlayerCharacter class for rendering the player character.
-         * Inherits from Character class.
+         * @brief PlayerCharacter class for the player character.
+         * Inherits from class Character.
          */
         class PlayerCharacter : public Character
         {
@@ -37,15 +37,15 @@ namespace entities
 
                 /**
                  * @brief Construct new PlayerCharacter object.
-                 * @param aStartX x-position
-                 * @param aStartY y-position
-                 * @param aTexture texture
+                 * @param aStartX start x-position
+                 * @param aStartY start y-position
+                 * @param aTexture player texture
                  */
                 PlayerCharacter(int aStartX, int aStartY, SDL_Texture* aTexture);
                 
                 /**
                  * @brief Destroy PlayerCharacter object.
-                 * Destroys the texture.
+                 * Destroys the player texture.
                  */
                 ~PlayerCharacter();
 
@@ -56,7 +56,7 @@ namespace entities
                 void render(gfx::render::RendererManager& aRenderer) override;
 
                 /**
-                 * @brief ATTENTION: This function is not needed for PlayerCharacter.
+                 * @brief ATTENTION: TODO: ist das korrekt? This function is not needed for PlayerCharacter.
                  * @param aRenderer renderer manager
                  * @param aCamera camera
                  */
