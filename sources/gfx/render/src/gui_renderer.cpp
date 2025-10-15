@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 2:12:45 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 10.March 2025, 2:11:02 pm
+ *  Last Modified: We 15.October 2025, 10:12:54 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -24,7 +24,7 @@ namespace gfx
     void GuiRenderer::render(const Renderable& aElem)
     {
       // render texture at position
-      SDL_Rect dstRect = { aElem.getElementPos().x , aElem.getElementPos().y, aElem.getElementWidth(), aElem.getElementHeight() };
+      SDL_Rect dstRect = {aElem.getElementPos().x, aElem.getElementPos().y, aElem.getElementWidth(), aElem.getElementHeight()};
       SDL_RenderCopy(mRenderer, aElem.getTexture(), nullptr, &dstRect);
     }
   }

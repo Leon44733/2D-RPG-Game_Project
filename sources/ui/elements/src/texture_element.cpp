@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:16 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 07.March 2025, 1:56:42 pm
+ *  Last Modified: We 15.October 2025, 10:05:45 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -22,7 +22,7 @@ namespace ui
     {
       mTexture = aTexture;
 
-      if (mTexture)
+      if(mTexture)
       {
         // Query texture for its width and height
         SDL_QueryTexture(mTexture, nullptr, nullptr, &mWidth, &mHeight);
@@ -51,4 +51,3 @@ namespace ui
     }
   }
 }
-

@@ -5,7 +5,7 @@
  *  Created Date: We 05.March 2025, 11:36:22 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 10.March 2025, 1:38:30 pm
+ *  Last Modified: We 15.October 2025, 10:07:21 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,11 +19,11 @@
 namespace kernel
 {
   Camera::Camera() {}
-  Camera::Camera(int aWidth, int aHeight, int aWorldWidth, int aWorldHeight) :
-    mWidth(aWidth),
-    mHeight(aHeight),
-    mWorldWidth(aWorldWidth),
-    mWorldHeight(aWorldHeight)
+  Camera::Camera(int aWidth, int aHeight, int aWorldWidth, int aWorldHeight)
+    : mWidth(aWidth),
+      mHeight(aHeight),
+      mWorldWidth(aWorldWidth),
+      mWorldHeight(aWorldHeight)
   {
     mPos.x = 0;
     mPos.y = 0;

@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:03 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 18.June 2025, 10:41:59 am
+ *  Last Modified: We 15.October 2025, 10:23:07 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -20,49 +20,48 @@
 
 namespace entities
 {
-    namespace characters
+  namespace characters
+  {
+    /**
+     * @brief PlayerCharacter class for the player character.
+     * Inherits from class Character.
+     */
+    class PlayerCharacter : public Character
     {
-        /**
-         * @brief PlayerCharacter class for the player character.
-         * Inherits from class Character.
-         */
-        class PlayerCharacter : public Character
-        {
-            public:
+    public:
+      /**
+       * @brief Construct new PlayerCharacter object.
+       */
+      PlayerCharacter();
 
-                /**
-                 * @brief Construct new PlayerCharacter object.
-                 */
-                PlayerCharacter();
+      /**
+       * @brief Construct new PlayerCharacter object.
+       * @param aStartX start x-position
+       * @param aStartY start y-position
+       * @param aTexture player texture
+       */
+      PlayerCharacter(int aStartX, int aStartY, SDL_Texture* aTexture);
 
-                /**
-                 * @brief Construct new PlayerCharacter object.
-                 * @param aStartX start x-position
-                 * @param aStartY start y-position
-                 * @param aTexture player texture
-                 */
-                PlayerCharacter(int aStartX, int aStartY, SDL_Texture* aTexture);
-                
-                /**
-                 * @brief Destroy PlayerCharacter object.
-                 * Destroys the player texture.
-                 */
-                ~PlayerCharacter();
+      /**
+       * @brief Destroy PlayerCharacter object.
+       * Destroys the player texture.
+       */
+      ~PlayerCharacter();
 
-                /**
-                 * @brief Render player character.
-                 * @param aRenderer renderer manager
-                 */
-                void render(gfx::render::RendererManager& aRenderer) override;
+      /**
+       * @brief Render player character.
+       * @param aRenderer renderer manager
+       */
+      void render(gfx::render::RendererManager& aRenderer) override;
 
-                /**
-                 * @brief ATTENTION: TODO: ist das korrekt? This function is not needed for PlayerCharacter.
-                 * @param aRenderer renderer manager
-                 * @param aCamera camera
-                 */
-                [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> aCamera) override {};
-        };
-    }
+      /**
+       * @brief ATTENTION: TODO: ist das korrekt? This function is not needed for PlayerCharacter.
+       * @param aRenderer renderer manager
+       * @param aCamera camera
+       */
+      [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> aCamera) override {};
+    };
+  }
 }
 
 #endif // PLAYER_CHARACTER_H

@@ -5,7 +5,7 @@
  *  Created Date: We 05.March 2025, 2:26:54 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 10.March 2025, 2:05:10 pm
+ *  Last Modified: We 15.October 2025, 10:22:08 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -20,7 +20,7 @@
 
 #include "gfx/render/include/i_camera.h"
 #include "gfx/render/include/renderable.h"
- 
+
 namespace gfx
 {
   namespace render
@@ -30,27 +30,27 @@ namespace gfx
      */
     class BackgroundRenderer
     {
-      public:
-        /**
-         * @brief Construct new BackgroundRenderer object.
-         * @param aRenderer SDL renderer
-         */
-        BackgroundRenderer(SDL_Renderer* aRenderer);
+    public:
+      /**
+       * @brief Construct new BackgroundRenderer object.
+       * @param aRenderer SDL renderer
+       */
+      BackgroundRenderer(SDL_Renderer* aRenderer);
 
-        /**
-         * @brief Destroy BackgroundRenderer object.
-         */
-        ~BackgroundRenderer();
-        
-        /**
-         * @brief Render background texture at position.
-         * @param aElem background element to render
-         * @param aCamera camera
-         */
-        void render(const Renderable& aElem, std::shared_ptr<ICamera> aCamera);
+      /**
+       * @brief Destroy BackgroundRenderer object.
+       */
+      ~BackgroundRenderer();
 
-      private:
-        SDL_Renderer* mRenderer;  // SDL Renderer
+      /**
+       * @brief Render background texture at position.
+       * @param aElem background element to render
+       * @param aCamera camera
+       */
+      void render(const Renderable& aElem, std::shared_ptr<ICamera> aCamera);
+
+    private:
+      SDL_Renderer* mRenderer; // SDL Renderer
     };
   }
 }

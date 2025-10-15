@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:42:25 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 06.March 2025, 3:48:20 pm
+ *  Last Modified: We 15.October 2025, 10:21:21 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -28,26 +28,26 @@ namespace gfx
      */
     class GuiRenderer
     {
-      public:
-        /**
-         * @brief Construct new GuiRenderer object.
-         * @param aRenderer SDL renderer
-         */
-        GuiRenderer(SDL_Renderer* aRenderer);
-        
-        /**
-         * @brief Destroy GuiRenderer object.
-         */
-        ~GuiRenderer();
+    public:
+      /**
+       * @brief Construct new GuiRenderer object.
+       * @param aRenderer SDL renderer
+       */
+      GuiRenderer(SDL_Renderer* aRenderer);
 
-        /**
-         * @brief Render gui element.
-         * @param aElement gui element to render
-         */
-        void render(const Renderable& aElem);
+      /**
+       * @brief Destroy GuiRenderer object.
+       */
+      ~GuiRenderer();
 
-      private:
-        SDL_Renderer* mRenderer;  // SDL renderer
+      /**
+       * @brief Render gui element.
+       * @param aElement gui element to render
+       */
+      void render(const Renderable& aElem);
+
+    private:
+      SDL_Renderer* mRenderer; // SDL renderer
     };
   }
 }

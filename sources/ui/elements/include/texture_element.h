@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:26 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Tu 11.March 2025, 8:50:24 am
+ *  Last Modified: We 15.October 2025, 10:01:50 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -31,30 +31,30 @@ namespace ui
      */
     class TextureElement : public gfx::render::Renderable
     {
-      public:
-        /**
-         * @brief Construct new TextureElement object.
-         * @param aTexture texture to render
-         */
-        TextureElement(SDL_Texture* aTexture);
-        
-        /**
-         * @brief Destroy TextureElement object.
-         */
-        ~TextureElement();
+    public:
+      /**
+       * @brief Construct new TextureElement object.
+       * @param aTexture texture to render
+       */
+      TextureElement(SDL_Texture* aTexture);
 
-        /**
-         * @brief Render texture element by passing the renderer manager.
-         * @param aRenderer renderer manager
-         */
-        void render(gfx::render::RendererManager& aRenderer) override;
+      /**
+       * @brief Destroy TextureElement object.
+       */
+      ~TextureElement();
 
-        /**
-         * @brief ATTENTION: This function is not needed for TextureElement.
-         * @param aRenderer renderer manager
-         * @param aCamera camera
-         */
-        [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> aCamera) override {};
+      /**
+       * @brief Render texture element by passing the renderer manager.
+       * @param aRenderer renderer manager
+       */
+      void render(gfx::render::RendererManager& aRenderer) override;
+
+      /**
+       * @brief ATTENTION: This function is not needed for TextureElement.
+       * @param aRenderer renderer manager
+       * @param aCamera camera
+       */
+      [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> aCamera) override {};
     };
   }
 }
