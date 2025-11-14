@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:42:25 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:46:01 pm
+ *  Last Modified: Sa 15.November 2025, 12:24:20 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -44,7 +44,7 @@ namespace gfx
        * @brief Render gui element.
        * @param aElement gui element to render
        */
-      void render(const Renderable& aElem, const std::optional<RenderContext>& aCtx) override;
+      void render(const Renderable& aElem, const std::optional<RenderContext>& /*aCtx*/) override; // aCtx is not needed here
 
     private:
       SDL_Renderer* mRenderer; // SDL renderer

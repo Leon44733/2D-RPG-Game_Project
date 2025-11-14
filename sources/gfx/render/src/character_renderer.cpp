@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:23:58 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:48:45 pm
+ *  Last Modified: Sa 15.November 2025, 12:24:50 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -21,7 +21,7 @@ namespace gfx
     CharacterRenderer::CharacterRenderer(SDL_Renderer* aRenderer) : mRenderer(aRenderer) {}
     CharacterRenderer::~CharacterRenderer() {}
 
-    void CharacterRenderer::render(const Renderable& aPlayer, const std::optional<RenderContext>& aCtx) // aCtx is not needed here
+    void CharacterRenderer::render(const Renderable& aPlayer, const std::optional<RenderContext>& /*aCtx*/)
     {
       int windowWidth, windowHeight;
       SDL_GetRendererOutputSize(mRenderer, &windowWidth, &windowHeight);

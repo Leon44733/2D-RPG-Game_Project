@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:23:47 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:45:49 pm
+ *  Last Modified: Sa 15.November 2025, 12:23:57 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -44,7 +44,7 @@ namespace gfx
        * @brief Render player character texture at position.
        * @param aCharacter player character to render
        */
-      void render(const Renderable& aPlayer, const std::optional<RenderContext>& aCtx) override;
+      void render(const Renderable& aPlayer, const std::optional<RenderContext>& /*aCtx*/) override; // aCtx is not needed here
 
     private:
       SDL_Renderer* mRenderer; // SDL renderer
