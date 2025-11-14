@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:12:38 pm
+ *  Last Modified: Fr 14.November 2025, 11:34:46 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,6 +13,7 @@
  */
 
 #include "gfx/render/include/renderer_manager.h"
+#include "gfx/render/include/renderer_factory.h"
 #include "utils/include/logger.h"
 
 namespace gfx
@@ -20,15 +21,17 @@ namespace gfx
   namespace render
   {
     RendererManager::RendererManager(SDL_Window* aWindow)
-      : mRenderer(SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED)),
-        mBgRenderer(mRenderer),
-        mGuiRenderer(mRenderer),
-        mCharRenderer(mRenderer)
+      : mRenderer(SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED))
     {
       if(!mRenderer)
       {
         utils::log::Logger::error("SDL2 Error: Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
       }
+
+      // initialize renderers
+      mBgRenderer = RendererFactory::createRenderer(RendererType::BACKGROUND, mRenderer);
+      mGuiRenderer = RendererFactory::createRenderer(RendererType::GUI, mRenderer);
+      mCharRenderer = RendererFactory::createRenderer(RendererType::CHARACTER, mRenderer);
     }
 
     RendererManager::~RendererManager()
@@ -45,12 +48,12 @@ namespace gfx
       return mRenderer;
     }
 
-    BackgroundRenderer& RendererManager::getBgRenderer()
+    IRenderer& RendererManager::getBgRenderer()
     {
-      return mBgRenderer;
+      return *mBgRenderer;
     }
 
-    void RendererManager::addBgRenderable(std::shared_ptr<Renderable> aElem, std::string aName)
+    void RendererManager::addBgElement(std::shared_ptr<Renderable> aElem, std::string aName)
     {
       mBgElements[aName] = aElem;
     }
@@ -74,17 +77,34 @@ namespace gfx
       }
     }
 
-    GuiRenderer& RendererManager::getGuiRenderer()
+    IRenderer& RendererManager::getGuiRenderer() const
     {
-      return mGuiRenderer;
+      return *mGuiRenderer;
     }
 
-    CharacterRenderer& RendererManager::getCharRenderer()
+    void RendererManager::addGuiElement(std::shared_ptr<Renderable> aElem)
     {
-      return mCharRenderer;
+      mGuiElements.push_back(aElem);
     }
 
-    void RendererManager::addCharRenderable(std::shared_ptr<Renderable> aElem, std::string aName)
+    void RendererManager::renderAllGuiElem()
+    {
+      // render all renderable elements
+      for(auto& element : mGuiElements)
+      {
+        if(element->isVisible())
+        {
+          element->render(*this);
+        }
+      }
+    }
+
+    IRenderer& RendererManager::getCharRenderer() const
+    {
+      return *mCharRenderer;
+    }
+
+    void RendererManager::addCharElement(std::shared_ptr<Renderable> aElem, std::string aName)
     {
       mCharElements[aName] = aElem;
     }
@@ -104,23 +124,6 @@ namespace gfx
       if(mCharElements[aName]->isVisible())
       {
         mCharElements[aName]->render(*this);
-      }
-    }
-
-    void RendererManager::addGuiRenderable(std::shared_ptr<Renderable> aElem)
-    {
-      mGuiElements.push_back(aElem);
-    }
-
-    void RendererManager::renderAllGuiElem()
-    {
-      // render all renderable elements
-      for(auto& element : mGuiElements)
-      {
-        if(element->isVisible())
-        {
-          element->render(*this);
-        }
       }
     }
   }

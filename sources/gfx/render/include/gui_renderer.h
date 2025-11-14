@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:42:25 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:21:21 pm
+ *  Last Modified: Fr 14.November 2025, 11:46:01 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,7 +17,7 @@
 
 #include <SDL.h>
 
-#include "gfx/render/include/renderable.h"
+#include "gfx/render/include/i_renderer.h"
 
 namespace gfx
 {
@@ -26,7 +26,7 @@ namespace gfx
     /**
      * @brief GuiRenderer class for rendering GUI elements.
      */
-    class GuiRenderer
+    class GuiRenderer : public IRenderer
     {
     public:
       /**
@@ -44,7 +44,7 @@ namespace gfx
        * @brief Render gui element.
        * @param aElement gui element to render
        */
-      void render(const Renderable& aElem);
+      void render(const Renderable& aElem, const std::optional<RenderContext>& aCtx) override;
 
     private:
       SDL_Renderer* mRenderer; // SDL renderer

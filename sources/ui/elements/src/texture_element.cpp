@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:16 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:05:45 pm
+ *  Last Modified: Fr 14.November 2025, 11:54:37 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -46,7 +46,7 @@ namespace ui
     {
       if(mTexture)
       {
-        aRenderer.getGuiRenderer().render(*this);
+        aRenderer.getGuiRenderer().render(*this, std::nullopt);
       }
     }
   }

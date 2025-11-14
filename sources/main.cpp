@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:24:42 pm
+ *  Last Modified: Sa 15.November 2025, 12:05:44 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -28,7 +28,7 @@
 
 int main()
 {
-  std::cout << "Hello World!" << std::endl;
+  // std::cout << "Hello World!" << std::endl;
 
   // create, configure and initialize window
   std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(640, 360);
@@ -84,17 +84,17 @@ int main()
 
   // TODO: Only for static background
   // std::shared_ptr<ui::elem::TextureElement> bgTextureElem = std::make_shared<ui::elem::TextureElement>(bgTexture);
-  // rManager->addGuiRenderable(bgTextureElem);
+  // rManager->addGuiElement(bgTextureElem);
 
-  rManager->addGuiRenderable(hotBarElem);
-  rManager->addGuiRenderable(healthBarElem);
-  rManager->addGuiRenderable(manaBarElem);
-  rManager->addBgRenderable(bgElem, "Background_1");
+  rManager->addGuiElement(hotBarElem);
+  rManager->addGuiElement(healthBarElem);
+  rManager->addGuiElement(manaBarElem);
+  rManager->addBgElement(bgElem, "Background_1");
 
   // create player character
   SDL_Texture* playerTexture = tManager->getTexture("Player");
   std::shared_ptr<entities::characters::PlayerCharacter> playerElem = std::make_shared<entities::characters::PlayerCharacter>(288, 148, playerTexture);
-  rManager->addCharRenderable(playerElem, "Player");
+  rManager->addCharElement(playerElem, "Player");
 
   // Initialize and run the game loop
   kernel::GameLoop gameLoop(window, std::move(rManager), std::move(tManager));

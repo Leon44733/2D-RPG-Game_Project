@@ -5,7 +5,7 @@
  *  Created Date: Sa 08.March 2025, 4:49:37 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:05:57 pm
+ *  Last Modified: Fr 14.November 2025, 11:59:39 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,6 +13,8 @@
  */
 
 #include "ui/elements/include/background_element.h"
+
+#include "gfx/render/include/render_context.h"
 
 namespace ui
 {
@@ -46,7 +48,8 @@ namespace ui
     {
       if(mTexture)
       {
-        aRenderer.getBgRenderer().render(*this, aCamera);
+        gfx::render::RenderContext ctx{aCamera};
+        aRenderer.getBgRenderer().render(*this, ctx);
       }
     }
   }

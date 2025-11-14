@@ -5,7 +5,7 @@
 # Created Date: Mo 17.February 2025, 3:39:51 pm
 # Author: lbarwe
 # -----
-# Last Modified: Th 06.March 2025, 2:35:08 pm
+# Last Modified: Sa 15.November 2025, 12:03:16 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,11 +15,12 @@
 # define library for gfx module
 add_library(gfx STATIC)
 target_sources(gfx PRIVATE
-    texture/src/texture_manager.cpp
-    render/src/renderer_manager.cpp
     render/src/background_renderer.cpp
-    render/src/gui_renderer.cpp
     render/src/character_renderer.cpp
+    render/src/gui_renderer.cpp
+    render/src/renderer_factory.cpp
+    render/src/renderer_manager.cpp
+    texture/src/texture_manager.cpp
 )
 
 # include directories for this module

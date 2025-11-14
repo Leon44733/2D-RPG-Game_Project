@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 12:47:07 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:14:38 pm
+ *  Last Modified: Fr 14.November 2025, 11:34:38 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -51,7 +51,7 @@ namespace gfx
        * @brief Add renderable element to vector.
        * @param aElem shared pointer to renderable element
        */
-      void addGuiRenderable(std::shared_ptr<Renderable> aElem);
+      void addGuiElement(std::shared_ptr<Renderable> aElem);
 
       /**
        * @brief Render all renderable elements in the renderables vector.
@@ -69,20 +69,20 @@ namespace gfx
        * @brief Get GuiRenderer object.
        * @return GuiRenderer& gui renderer
        */
-      GuiRenderer& getGuiRenderer();
+      IRenderer& getGuiRenderer() const;
 
       /**
        * @brief Get CharacterRenderer object.
        * @return CharacterRenderer& character renderer
        */
-      CharacterRenderer& getCharRenderer();
+      IRenderer& getCharRenderer() const;
 
       /**
        * @brief Add renderable character element to unordered map.
        * @param aElem shared pointer to renderable element
        * @param aName identifier name of renderable character
        */
-      void addCharRenderable(std::shared_ptr<Renderable> aElem, std::string aName);
+      void addCharElement(std::shared_ptr<Renderable> aElem, std::string aName);
 
       /**
        * @brief Get character element from unordered map.
@@ -100,14 +100,14 @@ namespace gfx
        * @brief Get BackgroundRenderer object.
        * @return BackgroundRenderer& background renderer
        */
-      BackgroundRenderer& getBgRenderer();
+      IRenderer& getBgRenderer();
 
       /**
        * @brief Add renderable background object to unordered map.
        * @param aElem shared pointer to renderable element
        * @param aName identifier name of renderable background
        */
-      void addBgRenderable(std::shared_ptr<Renderable> aElem, std::string aName);
+      void addBgElement(std::shared_ptr<Renderable> aElem, std::string aName);
 
       /**
        * @brief Get background element from unordered map.
@@ -124,9 +124,9 @@ namespace gfx
 
     private:
       SDL_Renderer* mRenderer;                                                    // sdl renderer
-      BackgroundRenderer mBgRenderer;                                             // background renderer
-      GuiRenderer mGuiRenderer;                                                   // gui renderer
-      CharacterRenderer mCharRenderer;                                            // character renderer
+      std::unique_ptr<IRenderer> mBgRenderer;                                     // background renderer
+      std::unique_ptr<IRenderer> mGuiRenderer;                                    // gui renderer
+      std::unique_ptr<IRenderer> mCharRenderer;                                   // character renderer
       std::vector<std::shared_ptr<Renderable>> mGuiElements;                      // vector of gui elements
       std::unordered_map<std::string, std::shared_ptr<Renderable>> mBgElements;   // map of background elements
       std::unordered_map<std::string, std::shared_ptr<Renderable>> mCharElements; // map of character elements
