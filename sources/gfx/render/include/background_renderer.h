@@ -5,7 +5,7 @@
  *  Created Date: We 05.March 2025, 2:26:54 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:45:33 pm
+ *  Last Modified: Fr 06.February 2026, 8:41:57 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 #define BACKGROUND_RENDERER_H
 
 #include <SDL.h>
+#include <optional>
 
 #include "gfx/render/include/i_renderer.h"
 
@@ -25,15 +26,16 @@ namespace gfx
   {
     /**
      * @brief BackgroundRenderer class for rendering background textures.
+     *        Inherits from class IRenderer.
      */
     class BackgroundRenderer : public IRenderer
     {
     public:
       /**
        * @brief Construct new BackgroundRenderer object.
-       * @param aRenderer SDL renderer
+       * @param apRenderer SDL renderer
        */
-      BackgroundRenderer(SDL_Renderer* aRenderer);
+      BackgroundRenderer(SDL_Renderer* apRenderer);
 
       /**
        * @brief Destroy BackgroundRenderer object.
@@ -42,13 +44,13 @@ namespace gfx
 
       /**
        * @brief Render background texture at position defined by camera.
-       * @param aElem background element to render
-       * @param aCamera camera
+       * @param arElem background element to render
+       * @param arCtx render context containing camera information
        */
-      void render(const Renderable& aElem, const std::optional<RenderContext>& aCtx) override;
+      void render(const Renderable& arElem, const std::optional<RenderContext>& arCtx) override;
 
     private:
-      SDL_Renderer* mRenderer; // SDL Renderer
+      SDL_Renderer* mpRenderer; // SDL Renderer
     };
   }
 }

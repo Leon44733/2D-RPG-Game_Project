@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 8:47:34 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 9:56:51 pm
+ *  Last Modified: Fr 06.February 2026, 9:54:58 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -29,21 +29,21 @@ namespace utils
     public:
       /**
        * @brief Log message with info severity level.
-       * @param aMsg message to log
+       * @param arMsg message to log
        */
-      static void info(const std::string& aMsg);
+      static void info(const std::string& arMsg);
 
       /**
        * @brief Log message with warning severity level.
-       * @param aMsg message to log
+       * @param arMsg message to log
        */
-      static void warning(const std::string& aMsg);
+      static void warning(const std::string& arMsg);
 
       /**
        * @brief Log message with error severity level.
-       * @param aMsg message to log
+       * @param arMsg message to log
        */
-      static void error(const std::string& aMsg);
+      static void error(const std::string& arMsg);
 
     private:
       Logger() = delete;                         // prevent instantiation of logger
@@ -63,9 +63,9 @@ namespace utils
       /**
        * @brief Log message with severity level.
        * @param aLevel severity level
-       * @param aMsg message to log
+       * @param arMsg message to log
        */
-      static void log(Level aLevel, const std::string& aMsg);
+      static void log(Level aLevel, const std::string& arMsg);
     };
   }
 }

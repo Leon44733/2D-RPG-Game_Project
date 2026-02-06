@@ -5,7 +5,7 @@
  *  Created Date: Tu 21.October 2025, 8:58:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:59:13 pm
+ *  Last Modified: Fr 06.February 2026, 8:54:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,18 +17,19 @@
 
 #include <memory>
 
-#include "gfx/render/include/i_camera.h"
-
 namespace gfx
 {
   namespace render
   {
+    //forward declaration
+    class ICamera;
+
     /**
      * @brief RenderContext struct for holding rendering context information.
      */
     struct RenderContext
     {
-      std::shared_ptr<ICamera> camera = nullptr; // Camera used for rendering
+      std::shared_ptr<ICamera> mpCamera = nullptr; // camera used for rendering
     };
   }
 }

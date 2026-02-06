@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:25:10 pm
+ *  Last Modified: Fr 06.February 2026, 9:41:44 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,13 +16,14 @@
 #include <SDL_image.h>
 
 #include "ui/window/include/window.h"
+
 #include "utils/include/logger.h"
 
 namespace ui
 {
-  Window::Window() : mSDLWindow(nullptr), mWidth(800), mHeight(300) {}
+  Window::Window() : mpSDLWindow(nullptr), mWidth(800), mHeight(300) {}
 
-  Window::Window(int aWidth, int aHeight) : mSDLWindow(nullptr)
+  Window::Window(int aWidth, int aHeight) : mpSDLWindow(nullptr)
   {
     mWidth = aWidth;
     mHeight = aHeight;
@@ -52,7 +53,7 @@ namespace ui
     }
 
     // create SDL window
-    mSDLWindow = SDL_CreateWindow(
+    mpSDLWindow = SDL_CreateWindow(
         "SDL2 Window",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
@@ -60,7 +61,7 @@ namespace ui
         mHeight,
         SDL_WINDOW_SHOWN);
 
-    if(!mSDLWindow)
+    if(!mpSDLWindow)
     {
       // error while trying to create window
       utils::log::Logger::error("SDL2 Error: Failed to create window\nSDL Error: " + std::string(SDL_GetError()) + "\n");
@@ -89,16 +90,16 @@ namespace ui
 
   SDL_Window* Window::getSDLWindow() const
   {
-    return mSDLWindow;
+    return mpSDLWindow;
   }
 
   void Window::destruct()
   {
-    if(mSDLWindow)
+    if(mpSDLWindow)
     {
       // destroy window if it exists
-      SDL_DestroyWindow(mSDLWindow);
-      mSDLWindow = nullptr;
+      SDL_DestroyWindow(mpSDLWindow);
+      mpSDLWindow = nullptr;
     }
 
     IMG_Quit(); // quit SDL_image library

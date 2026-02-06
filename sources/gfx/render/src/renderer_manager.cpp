@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:34:46 pm
+ *  Last Modified: Fr 06.February 2026, 9:30:21 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,48 +14,51 @@
 
 #include "gfx/render/include/renderer_manager.h"
 #include "gfx/render/include/renderer_factory.h"
+#include "gfx/render/include/renderable.h"
+#include "gfx/render/include/i_renderer.h"
+
 #include "utils/include/logger.h"
 
 namespace gfx
 {
   namespace render
   {
-    RendererManager::RendererManager(SDL_Window* aWindow)
-      : mRenderer(SDL_CreateRenderer(aWindow, -1, SDL_RENDERER_ACCELERATED))
+    RendererManager::RendererManager(SDL_Window* apWindow)
+      : mpRenderer(SDL_CreateRenderer(apWindow, -1, SDL_RENDERER_ACCELERATED))
     {
-      if(!mRenderer)
+      if(!mpRenderer)
       {
-        utils::log::Logger::error("SDL2 Error: Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+        utils::log::Logger::error("Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
       }
 
       // initialize renderers
-      mBgRenderer = RendererFactory::createRenderer(RendererType::BACKGROUND, mRenderer);
-      mGuiRenderer = RendererFactory::createRenderer(RendererType::GUI, mRenderer);
-      mCharRenderer = RendererFactory::createRenderer(RendererType::CHARACTER, mRenderer);
+      mpBgRenderer = RendererFactory::createRenderer(RendererType::BACKGROUND, mpRenderer);
+      mpGuiRenderer = RendererFactory::createRenderer(RendererType::GUI, mpRenderer);
+      mpCharRenderer = RendererFactory::createRenderer(RendererType::CHARACTER, mpRenderer);
     }
 
     RendererManager::~RendererManager()
     {
       // free renderer
-      if(mRenderer)
+      if(mpRenderer)
       {
-        SDL_DestroyRenderer(mRenderer);
+        SDL_DestroyRenderer(mpRenderer);
       }
     }
 
     SDL_Renderer* RendererManager::getRenderer() const
     {
-      return mRenderer;
+      return mpRenderer;
     }
 
     IRenderer& RendererManager::getBgRenderer()
     {
-      return *mBgRenderer;
+      return *mpBgRenderer;
     }
 
-    void RendererManager::addBgElement(std::shared_ptr<Renderable> aElem, std::string aName)
+    void RendererManager::addBgElement(std::shared_ptr<Renderable> apElem, std::string aName)
     {
-      mBgElements[aName] = aElem;
+      mBgElements[aName] = apElem;
     }
 
     Renderable& RendererManager::getBgElement(std::string aName)
@@ -63,31 +66,32 @@ namespace gfx
       return *mBgElements[aName];
     }
 
-    void RendererManager::renderBgElement(std::string aName, std::shared_ptr<ICamera> aCamera)
+    void RendererManager::renderBgElement(std::string aName, std::shared_ptr<ICamera> apCamera)
     {
-      SDL_RenderClear(mRenderer);
+      SDL_RenderClear(mpRenderer);
       if(mBgElements.find(aName) == mBgElements.end())
       {
         utils::log::Logger::error("Background element not found with name: " + aName);
       }
 
+      // render background element if visible
       if(mBgElements[aName]->isVisible())
       {
-        mBgElements[aName]->render(*this, aCamera);
+        mBgElements[aName]->render(*this, apCamera);
       }
     }
 
     IRenderer& RendererManager::getGuiRenderer() const
     {
-      return *mGuiRenderer;
+      return *mpGuiRenderer;
     }
 
-    void RendererManager::addGuiElement(std::shared_ptr<Renderable> aElem)
+    void RendererManager::addGuiElement(std::shared_ptr<Renderable> apElem)
     {
-      mGuiElements.push_back(aElem);
+      mGuiElements.push_back(apElem);
     }
 
-    void RendererManager::renderAllGuiElem()
+    void RendererManager::renderAllGuiElements()
     {
       // render all renderable elements
       for(auto& element : mGuiElements)
@@ -101,12 +105,12 @@ namespace gfx
 
     IRenderer& RendererManager::getCharRenderer() const
     {
-      return *mCharRenderer;
+      return *mpCharRenderer;
     }
 
-    void RendererManager::addCharElement(std::shared_ptr<Renderable> aElem, std::string aName)
+    void RendererManager::addCharElement(std::shared_ptr<Renderable> apElem, std::string aName)
     {
-      mCharElements[aName] = aElem;
+      mCharElements[aName] = apElem;
     }
 
     Renderable& RendererManager::getCharElement(std::string aName)

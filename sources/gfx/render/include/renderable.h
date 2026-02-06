@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:36:33 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:20:59 pm
+ *  Last Modified: Fr 06.February 2026, 8:56:47 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -18,57 +18,57 @@
 #include <SDL.h>
 #include <memory>
 
-#include "gfx/render/include/i_camera.h"
-
 namespace gfx
 {
   namespace render
   {
-    class RendererManager; // forward declaration
+    // forward declarations
+    class RendererManager;
+    class ICamera;
 
     /**
      * @brief Abstract class for renderable objects.
-     * It provides functions for rendering and updating objects.
-     * It also provides a function to set the visibility of the object.
+     *        It provides functions for rendering and updating objects.
+     *        It also provides a function to set the visibility of the object.
      */
     class Renderable
     {
     public:
       /**
        * @brief Render object.
-       * @param aRenderer renderer manager
+       * @param arRenderer renderer manager
        */
-      virtual void render(RendererManager& aRenderer) = 0;
+      virtual void render(RendererManager& arRenderer) = 0;
 
       /**
        * @brief Render object using the camera.
-       * @param aRender renderer manager
-       * @param aCamera camera
+       * @param arRenderer renderer manager
+       * @param apCamera camera
        */
-      virtual void render(RendererManager& aRenderer, std::shared_ptr<ICamera> aCamera) = 0;
+      virtual void render(RendererManager& arRenderer, std::shared_ptr<ICamera> apCamera) = 0;
 
       /**
        * @brief Get element texture.
        * @return texture
        */
-      SDL_Texture* getTexture() const { return mTexture; }
+      SDL_Texture* getTexture() const { return mpTexture; }
 
       /**
        * @brief Set element size.
-       * @param aWidth width
-       * @param aHeight hight
+       * @param aWidth element width
+       * @param aHeight element hight
        */
       void setElementSize(int aWidth, int aHeight) { mWidth = aWidth; mHeight = aHeight; }
 
       /**
        * @brief Get element width.
-       * @return width
+       * @return element width
        */
       int getElementWidth() const { return mWidth; }
 
       /**
        * @brief Get element height.
-       * @return height
+       * @return element height
        */
       int getElementHeight() const { return mHeight; }
 
@@ -98,11 +98,11 @@ namespace gfx
       bool isVisible() const { return mVisible; }
 
     protected:
-      bool mVisible = true;  // visibility of element
-      SDL_Point mPos{0, 0};  // x-pos and y-pos of element
-      SDL_Texture* mTexture; // texture to render
-      int mWidth;            // element width
-      int mHeight;           // element height
+      SDL_Texture* mpTexture;      // texture to render
+      SDL_Point    mPos{0, 0};     // x-pos and y-pos of element
+      bool         mVisible{true}; // visibility of element
+      int          mWidth;         // element width
+      int          mHeight;        // element height
     };
   }
 }

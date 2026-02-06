@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:26 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:01:50 pm
+ *  Last Modified: Fr 06.February 2026, 9:36:08 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,9 +17,14 @@
 
 #include <SDL.h>
 
-#include "gfx/render/include/renderer_manager.h"
 #include "gfx/render/include/renderable.h"
-#include "gfx/render/include/i_camera.h"
+
+namespace gfx::render
+{
+  // forward declarations
+  class RendererManager;
+  class ICamera;
+}
 
 namespace ui
 {
@@ -27,7 +32,7 @@ namespace ui
   {
     /**
      * @brief TextureElement class for rendering textures on the screen.
-     * It inherits from Renderable class.
+     *        It inherits from Renderable class.
      */
     class TextureElement : public gfx::render::Renderable
     {
@@ -45,16 +50,16 @@ namespace ui
 
       /**
        * @brief Render texture element by passing the renderer manager.
-       * @param aRenderer renderer manager
+       * @param arRenderer renderer manager
        */
-      void render(gfx::render::RendererManager& aRenderer) override;
+      void render(gfx::render::RendererManager& arRenderer) override;
 
       /**
        * @brief ATTENTION: This function is not needed for TextureElement.
-       * @param aRenderer renderer manager
-       * @param aCamera camera
+       * @param arRenderer renderer manager
+       * @param arCamera camera
        */
-      [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> aCamera) override {};
+      [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& arRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> arCamera) override {};
     };
   }
 }

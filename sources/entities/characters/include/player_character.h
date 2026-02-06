@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:47:03 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:23:07 pm
+ *  Last Modified: Fr 06.February 2026, 9:15:53 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,7 +16,13 @@
 #define PLAYER_CHARACTER_H
 
 #include "entities/characters/include/character.h"
-#include "gfx/render/include/renderer_manager.h"
+
+namespace gfx::render
+{
+  // forward declaration
+  class RendererManager;
+  class ICamera;
+}
 
 namespace entities
 {
@@ -24,7 +30,7 @@ namespace entities
   {
     /**
      * @brief PlayerCharacter class for the player character.
-     * Inherits from class Character.
+     *        Inherits from class Character.
      */
     class PlayerCharacter : public Character
     {
@@ -38,28 +44,28 @@ namespace entities
        * @brief Construct new PlayerCharacter object.
        * @param aStartX start x-position
        * @param aStartY start y-position
-       * @param aTexture player texture
+       * @param apTexture player texture
        */
-      PlayerCharacter(int aStartX, int aStartY, SDL_Texture* aTexture);
+      PlayerCharacter(int aStartX, int aStartY, SDL_Texture* apTexture);
 
       /**
        * @brief Destroy PlayerCharacter object.
-       * Destroys the player texture.
+       *        Destroys the player texture.
        */
       ~PlayerCharacter();
 
       /**
        * @brief Render player character.
-       * @param aRenderer renderer manager
+       * @param arRenderer renderer manager
        */
-      void render(gfx::render::RendererManager& aRenderer) override;
+      void render(gfx::render::RendererManager& arRenderer) override;
 
       /**
        * @brief ATTENTION: TODO: ist das korrekt? This function is not needed for PlayerCharacter.
-       * @param aRenderer renderer manager
-       * @param aCamera camera
+       * @param arRenderer renderer manager
+       * @param apCamera camera
        */
-      [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& aRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> aCamera) override {};
+      [[maybe_unused]] void render([[maybe_unused]] gfx::render::RendererManager& arRenderer, [[maybe_unused]] std::shared_ptr<gfx::render::ICamera> apCamera) override {};
     };
   }
 }

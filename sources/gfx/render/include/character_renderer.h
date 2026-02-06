@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:23:47 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 15.November 2025, 12:23:57 am
+ *  Last Modified: Fr 06.February 2026, 8:42:20 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 #define CHARACTER_RENDERER_H
 
 #include <SDL.h>
+#include <optional>
 
 #include "gfx/render/include/i_renderer.h"
 
@@ -31,9 +32,9 @@ namespace gfx
     public:
       /**
        * @brief Construct new CharacterRenderer object.
-       * @param aRenderer SDL renderer
+       * @param apRenderer SDL renderer
        */
-      CharacterRenderer(SDL_Renderer* aRenderer);
+      CharacterRenderer(SDL_Renderer* apRenderer);
 
       /**
        * @brief Destroy CharacterRenderer object.
@@ -41,13 +42,14 @@ namespace gfx
       ~CharacterRenderer();
 
       /**
-       * @brief Render player character texture at position.
-       * @param aCharacter player character to render
+       * @brief Render player texture at position.
+       * @param arPlayer player element to render
+       * @param arCtx render context (not used)
        */
-      void render(const Renderable& aPlayer, const std::optional<RenderContext>& /*aCtx*/) override; // aCtx is not needed here
+      void render(const Renderable& arPlayer, const std::optional<RenderContext>& /*arCtx*/) override;
 
     private:
-      SDL_Renderer* mRenderer; // SDL renderer
+      SDL_Renderer* mpRenderer; // SDL renderer
     };
   }
 }

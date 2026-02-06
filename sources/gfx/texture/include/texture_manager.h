@@ -5,7 +5,7 @@
  *  Created Date: We 29.January 2025, 9:34:49 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:10:43 pm
+ *  Last Modified: Fr 06.February 2026, 9:58:45 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -36,36 +36,35 @@ namespace gfx
 
       /**
        * @brief Destroy TextureManager object.
-       * This function destroys all textures in the cache and clears the cache.
+       *        This function destroys all textures in the cache and clears the cache.
        */
       ~TextureManager();
 
       /**
        * @brief Load texture from file and save it in the cache.
-       * @param aFilePath path to the image file
-       * @param aTextureId texture identifier
-       * @param aRenderer renderer to create texture
+       * @param arFilePath path to the image file
+       * @param arTextureId texture identifier
+       * @param apRenderer renderer to create texture
        * @return true if loading was successful, false otherwise.
        */
-      bool load(const std::string& aFilePath, const std::string& aTextureId, SDL_Renderer* aRenderer);
+      bool load(const std::string& arFilePath, const std::string& arTextureId, SDL_Renderer* apRenderer);
 
       /**
        * @brief Get texture from cache.
-       * @param aTextureId texture identifier
+       * @param arTextureId texture identifier
        * @return texture from cache or nullptr if not found.
        */
-      SDL_Texture* getTexture(const std::string& aTextureId) const;
+      SDL_Texture* getTexture(const std::string& arTextureId) const;
 
       /**
        * @brief Release texture from cache.
-       * @param aTextureId texture identifier
+       * @param arTextureId texture identifier
        * @return true if texture was released, false otherwise.
        */
-      bool releaseTexture(const std::string& aTextureId);
+      bool releaseTexture(const std::string& arTextureId);
 
       /**
-       * @brief Clear texture cache.
-       * This function destroys all textures in the cache and clears the cache.
+       * @brief Destroy all textures in the cache and clear the cache.
        */
       void clearCache();
 

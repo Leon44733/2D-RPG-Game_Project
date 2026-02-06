@@ -5,7 +5,7 @@
  *  Created Date: Tu 21.October 2025, 8:29:33 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:16:59 pm
+ *  Last Modified: Fr 06.February 2026, 8:58:03 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -18,23 +18,33 @@
 #include <SDL.h>
 #include <memory>
 
-#include "gfx/render/include/i_renderer.h"
-
 namespace gfx
 {
   namespace render
   {
+    // forward declaration
+    class IRenderer;
+
+    /**
+     * @brief Enum class for different renderer types.
+     */
     enum class RendererType
     {
-      BACKGROUND,
-      GUI,
-      CHARACTER
+      BACKGROUND, // Background renderer
+      GUI,        // GUI renderer
+      CHARACTER   // Character renderer
     };
 
     class RendererFactory
     {
     public:
-      static std::unique_ptr<IRenderer> createRenderer(RendererType aType, SDL_Renderer* aSDLRenderer);
+      /**
+       * @brief Create a renderer of the specified type.
+       * @param aType type of renderer to create
+       * @param apRenderer SDL renderer
+       * @return unique pointer to the created renderer
+       */
+      static std::unique_ptr<IRenderer> createRenderer(RendererType aType, SDL_Renderer* apRenderer);
     };
   }
 }

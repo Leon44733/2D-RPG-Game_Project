@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:31:17 pm
+ *  Last Modified: Fr 06.February 2026, 10:35:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,15 +17,21 @@
 #include "kernel/include/game_loop.h"
 #include "kernel/include/camera.h"
 
+#include "gfx/render/include/renderer_manager.h"
+#include "gfx/texture/include/texture_manager.h"
+#include "gfx/render/include/renderable.h"
+
+#include "ui/window/include/window.h"
+
 namespace kernel
 {
-  GameLoop::GameLoop(std::shared_ptr<ui::Window> aSDLWindow, std::unique_ptr<gfx::render::RendererManager> aRManager, std::unique_ptr<gfx::texture::TextureManager> aTManager)
-    : mSDLWindow(aSDLWindow),
-      mRManager(std::move(aRManager)),
-      mTManager(std::move(aTManager))
+  GameLoop::GameLoop(std::shared_ptr<ui::Window> apSDLWindow, std::unique_ptr<gfx::render::RendererManager> apRManager, std::unique_ptr<gfx::texture::TextureManager> apTManager)
+    : mpSDLWindow(apSDLWindow),
+      mpRManager(std::move(apRManager)),
+      mpTManager(std::move(apTManager))
   {
     // add player camera
-    mCamera = std::make_shared<Camera>(aSDLWindow.get()->getWidth(), aSDLWindow.get()->getHeight(), mRManager->getBgElement("Background_1").getElementWidth(), mRManager->getBgElement("Background_1").getElementHeight());
+    mpCamera = std::make_shared<Camera>(apSDLWindow.get()->getWidth(), apSDLWindow.get()->getHeight(), mpRManager->getBgElement("Background_1").getElementWidth(), mpRManager->getBgElement("Background_1").getElementHeight());
   }
 
   GameLoop::~GameLoop() {}
@@ -54,16 +60,16 @@ namespace kernel
   void GameLoop::updateAndRender()
   {
     // render all elements in window
-    SDL_RenderClear(mRManager->getRenderer());
-    mRManager->renderBgElement("Background_1", mCamera);
-    mRManager->renderAllGuiElem();
-    mRManager->renderCharElement("Player");
+    SDL_RenderClear(mpRManager->getRenderer());
+    mpRManager->renderBgElement("Background_1", mpCamera);
+    mpRManager->renderAllGuiElements();
+    mpRManager->renderCharElement("Player");
 
     // update key input
     mKeyInput.update();
     checkForInput();
 
-    SDL_RenderPresent(mRManager->getRenderer());
+    SDL_RenderPresent(mpRManager->getRenderer());
   }
 
   void GameLoop::checkForInput()
@@ -77,7 +83,7 @@ namespace kernel
         if(mKeyInput.isKeyPressed(SDL_SCANCODE_A)) { moveX -= speed; }
         if(mKeyInput.isKeyPressed(SDL_SCANCODE_D)) { moveX += speed; }
 
-    mCamera->update(moveX, moveY);
+    mpCamera->update(moveX, moveY);
 
     SDL_Delay(1);
   }

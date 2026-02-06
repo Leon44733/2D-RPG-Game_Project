@@ -5,7 +5,7 @@
  *  Created Date: Mo 20.October 2025, 8:23:50 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Mo 20.October 2025, 9:17:21 pm
+ *  Last Modified: Fr 06.February 2026, 9:42:35 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -17,8 +17,6 @@
 
 #include "utils/include/logger.h"
 
-
-//TDOO: überarbeiten!!!
 namespace utils
 {
   namespace factory
@@ -29,29 +27,43 @@ namespace utils
     public:
       using CreatorFunc = std::function<std::unique_ptr<Base>()>;
 
-      static std::unique_ptr<Base> create(const std::string& aObjName)
+      /**
+       * @brief Create an instance of a registered type.
+       * @param arObjName name of the type to create
+       * @return pointer to the created instance
+       */
+      static std::unique_ptr<Base> create(const std::string& arObjName)
       {
-        auto it = getRegistry().find(aObjName);
+        // find the creator function in the registry
+        auto it = getRegistry().find(arObjName);
         if (it != getRegistry().end())
         {
           return (it->second)();
         }
-        utils::log::Logger::error("Factory: Unknown type requested: " + aObjName);
+        utils::log::Logger::error("Factory: Unknown type requested: " + arObjName);
         return nullptr;
       }
       
+      /**
+       * @brief Register a type with the factory.
+       * @param arObjName name of the type to register
+       * @param aCreator creator function for the type
+       */
+      static void registerType(const std::string& arObjName, CreatorFunc aCreator)
+      {
+        getRegistry()[arObjName] = aCreator;
+      }
+      
     private:
+      /**
+       * @brief Get the registry map.
+       * @return the reference to the registry map
+       */
       static std::unordered_map<std::string, CreatorFunc>& getRegistry()
       {
         static std::unordered_map<std::string, CreatorFunc> registry;
         return registry;
       }
-      
-      static void registerType(const std::string& aObjName, CreatorFunc aCreator)
-      {
-        getRegistry()[aObjName] = aCreator;
-      }
-      
     };
   }
 }

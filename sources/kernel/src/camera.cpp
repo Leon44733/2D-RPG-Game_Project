@@ -5,7 +5,7 @@
  *  Created Date: We 05.March 2025, 11:36:22 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:07:21 pm
+ *  Last Modified: Fr 06.February 2026, 9:52:48 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -29,10 +29,10 @@ namespace kernel
     mPos.y = 0;
   }
 
-  void Camera::update(int aMovePosX, int aMovePosY)
+  void Camera::update(int aNewPosX, int aNewPosY)
   {
-    mPos.x += aMovePosX;
-    mPos.y += aMovePosY;
+    mPos.x += aNewPosX;
+    mPos.y += aNewPosY;
 
     mPos.x = std::clamp(mPos.x, 0, mWorldWidth - mWidth);
     mPos.y = std::clamp(mPos.y, 0, mWorldHeight - mHeight);

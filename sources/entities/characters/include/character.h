@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:52:12 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:23:32 pm
+ *  Last Modified: Fr 06.February 2026, 8:39:23 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -19,21 +19,13 @@
 
 #include "gfx/render/include/renderable.h"
 
-namespace gfx
-{
-  namespace render
-  {
-    class RendererManager; // TODO: Muss diese sein? forward declaration
-  }
-}
-
 namespace entities
 {
   namespace characters
   {
     /**
      * @brief Character base class for creating characters.
-     * Inherits from class Renderable.
+     *        Inherits from class Renderable.
      */
     class Character : public gfx::render::Renderable
     {
@@ -45,16 +37,16 @@ namespace entities
 
       /**
        * @brief Construct new character object.
-       * Queries the texture for its width and height.
+       *        Queries the texture for its width and height.
        * @param aStartX start x-position
        * @param aStartY start y-position
-       * @param aTexture character texture
+       * @param apTexture character texture
        */
-      Character(int aStartX, int aStartY, SDL_Texture* aTexture);
+      Character(int aStartX, int aStartY, SDL_Texture* apTexture);
 
       /**
        * @brief Destroy Character object.
-       * Destroys the character texture.
+       *        Destroys the character texture.
        */
       ~Character();
     };

@@ -5,7 +5,7 @@
  *  Created Date: Fr 07.March 2025, 10:36:50 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 9:49:21 pm
+ *  Last Modified: Fr 06.February 2026, 8:43:10 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -34,10 +34,10 @@ namespace gfx
 
       /**
        * @brief Virtual function to update camera position.
-       * @param aMovePosX new x position
-       * @param aMovePosY new y position
+       * @param aNewPosX new x position
+       * @param aNewPosY new y position
        */
-      virtual void update(int aMovePosX, int aMovePosY) = 0;
+      virtual void update(int aNewPosX, int aNewPosY) = 0;
 
       /**
        * @brief Virtual function to get camera position.

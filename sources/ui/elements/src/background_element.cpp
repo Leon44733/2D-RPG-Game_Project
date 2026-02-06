@@ -5,7 +5,7 @@
  *  Created Date: Sa 08.March 2025, 4:49:37 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 14.November 2025, 11:59:39 pm
+ *  Last Modified: Fr 06.February 2026, 10:33:32 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,20 +14,21 @@
 
 #include "ui/elements/include/background_element.h"
 
-#include "gfx/render/include/render_context.h"
+#include "gfx/render/include/renderer_manager.h"
+#include "gfx/render/include/i_renderer.h"
 
 namespace ui
 {
   namespace elem
   {
-    BackgroundElement::BackgroundElement(SDL_Texture* aTexture)
+    BackgroundElement::BackgroundElement(SDL_Texture* apTexture)
     {
-      mTexture = aTexture;
+      mpTexture = apTexture;
 
-      if(mTexture)
+      if(mpTexture)
       {
         // Query texture for its width and height
-        SDL_QueryTexture(mTexture, nullptr, nullptr, &mWidth, &mHeight);
+        SDL_QueryTexture(mpTexture, nullptr, nullptr, &mWidth, &mHeight);
       }
       else
       {
@@ -44,12 +45,12 @@ namespace ui
       // Note: Do not destroy the texture here, as it is managed by the TextureManager
     }
 
-    void BackgroundElement::render(gfx::render::RendererManager& aRenderer, std::shared_ptr<gfx::render::ICamera> aCamera)
+    void BackgroundElement::render(gfx::render::RendererManager& arRenderer, std::shared_ptr<gfx::render::ICamera> arCamera)
     {
-      if(mTexture)
+      if(mpTexture)
       {
-        gfx::render::RenderContext ctx{aCamera};
-        aRenderer.getBgRenderer().render(*this, ctx);
+        gfx::render::RenderContext ctx{arCamera};
+        arRenderer.getBgRenderer().render(*this, ctx);
       }
     }
   }

@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 8:47:14 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 9:55:10 pm
+ *  Last Modified: Sa 15.November 2025, 3:43:36 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -14,41 +14,41 @@
 
 #include <iostream>
 
-#include "utils/include/Logger.h"
+#include "utils/include/logger.h"
 
 namespace utils
 {
   namespace log
   {
-    void Logger::log(Level aLevel, const std::string& aMsg)
+    void Logger::log(Level aLevel, const std::string& arMsg)
     {
       switch(aLevel)
       {
       case Level::INFO:
-        std::cout << "[INFO] " << aMsg << std::endl;
+        std::cout << "[INFO] " << arMsg << std::endl;
         break;
       case Level::WARNING:
-        std::cout << "[WARNING] " << aMsg << std::endl;
+        std::cout << "[WARNING] " << arMsg << std::endl;
         break;
       case Level::ERROR:
-        std::cerr << "[ERROR] " << aMsg << std::endl;
+        std::cerr << "[ERROR] " << arMsg << std::endl;
         break;
       }
     }
 
-    void Logger::info(const std::string& aMsg)
+    void Logger::info(const std::string& arMsg)
     {
-      log(Level::INFO, aMsg);
+      log(Level::INFO, arMsg);
     }
 
-    void Logger::warning(const std::string& aMsg)
+    void Logger::warning(const std::string& arMsg)
     {
-      log(Level::WARNING, aMsg);
+      log(Level::WARNING, arMsg);
     }
 
-    void Logger::error(const std::string& aMsg)
+    void Logger::error(const std::string& arMsg)
     {
-      log(Level::ERROR, aMsg);
+      log(Level::ERROR, arMsg);
     }
   }
 }

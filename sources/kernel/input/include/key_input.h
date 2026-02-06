@@ -5,7 +5,7 @@
  *  Created Date: Sa 22.February 2025, 6:01:49 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 10:07:53 pm
+ *  Last Modified: Fr 06.February 2026, 9:25:11 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -40,7 +40,7 @@ namespace kernel
       bool isKeyPressed(SDL_Scancode aKey) const;
 
     private:
-      const Uint8* mState; // Pointer to the current keyboard state
+      const Uint8* mpState; // pointer to the current keyboard state
     };
   }
 }

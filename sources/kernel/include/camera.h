@@ -5,7 +5,7 @@
  *  Created Date: We 05.March 2025, 11:36:11 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: We 15.October 2025, 9:50:18 pm
+ *  Last Modified: Fr 06.February 2026, 9:52:32 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -23,7 +23,7 @@ namespace kernel
 {
   /**
    * @brief Camera class for displaying player movement.
-   * Inherits from ICamera.
+   *        Inherits from ICamera.
    */
   class Camera : public gfx::render::ICamera
   {
@@ -44,10 +44,10 @@ namespace kernel
 
     /**
      * @brief Update camera and move to position.
-     * @param aMovePosX new x position
-     * @param aMovePosY new y position
+     * @param aNewPosX new x position
+     * @param aNewPosY new y position
      */
-    void update(int aMovePosX, int aMovePosY);
+    void update(int aNewPosX, int aNewPosY);
 
     /**
      * @brief Get current camera position.
@@ -56,11 +56,11 @@ namespace kernel
     SDL_Point getPos() const;
 
   private:
-    int mWidth;       // camera width based on window size
-    int mHeight;      // camera height based on window size
-    int mWorldWidth;  // world width based on background
-    int mWorldHeight; // world height based on background
-    SDL_Point mPos;   // camera position
+    SDL_Point mPos;         // camera position
+    int       mWidth;       // camera width based on window size
+    int       mHeight;      // camera height based on window size
+    int       mWorldWidth;  // world width based on background
+    int       mWorldHeight; // world height based on background
   };
 }
 
