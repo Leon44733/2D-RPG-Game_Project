@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:30:21 pm
+ *  Last Modified: Sa 11.April 2026, 4:15:16 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -28,7 +28,7 @@ namespace gfx
     {
       if(!mpRenderer)
       {
-        utils::log::Logger::error("Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+        // TODO: utils::log::Logger::error("Failed to create renderer\nSDL Error: " + std::string(SDL_GetError()) + "\n");
       }
 
       // initialize renderers
@@ -71,7 +71,7 @@ namespace gfx
       SDL_RenderClear(mpRenderer);
       if(mBgElements.find(aName) == mBgElements.end())
       {
-        utils::log::Logger::error("Background element not found with name: " + aName);
+        // TODO: utils::log::Logger::error("Background element not found with name: " + aName);
       }
 
       // render background element if visible
@@ -122,7 +122,7 @@ namespace gfx
     {
       if(mCharElements.find(aName) == mCharElements.end())
       {
-        utils::log::Logger::error("Character element not found with name: " + aName);
+        // TODO: utils::log::Logger::error("Character element not found with name: " + aName);
       }
 
       if(mCharElements[aName]->isVisible())

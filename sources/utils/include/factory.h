@@ -5,7 +5,7 @@
  *  Created Date: Mo 20.October 2025, 8:23:50 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:42:35 pm
+ *  Last Modified: Sa 11.April 2026, 4:15:45 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -40,7 +40,7 @@ namespace utils
         {
           return (it->second)();
         }
-        utils::log::Logger::error("Factory: Unknown type requested: " + arObjName);
+        // TODO: utils::log::Logger::error("Factory: Unknown type requested: " + arObjName);
         return nullptr;
       }
       

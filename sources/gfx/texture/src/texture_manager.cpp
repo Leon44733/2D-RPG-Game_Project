@@ -5,7 +5,7 @@
  *  Created Date: Tu 04.February 2025, 10:40:37 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:12:14 pm
+ *  Last Modified: Sa 11.April 2026, 4:15:34 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -35,7 +35,7 @@ namespace gfx
       SDL_Texture* texture = IMG_LoadTexture(apRenderer, arFilePath.c_str());
       if(!texture)
       {
-        utils::log::Logger::error("SDL2 Error: Failed to load texture.\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+        // TODO: utils::log::Logger::error("SDL2 Error: Failed to load texture.\nSDL Error: " + std::string(SDL_GetError()) + "\n");
         return false;
       }
 
@@ -52,7 +52,7 @@ namespace gfx
       {
         return it->second;
       }
-      utils::log::Logger::warning("Texture not found with ID: " + arTextureId);
+      // TODO: utils::log::Logger::warning("Texture not found with ID: " + arTextureId);
       return nullptr;
     }
 
@@ -66,7 +66,7 @@ namespace gfx
         mTextureCache.erase(it);
         return true;
       }
-      utils::log::Logger::warning("Texture with ID '" + arTextureId + "' not found.");
+      // TODO: utils::log::Logger::warning("Texture with ID '" + arTextureId + "' not found.");
       return false;
     }
 
@@ -78,7 +78,7 @@ namespace gfx
         SDL_DestroyTexture(texture.second);
       }
       mTextureCache.clear();
-      utils::log::Logger::info("Texture cache cleared.");
+      // TODO: utils::log::Logger::info("Texture cache cleared.");
     }
   }
 }

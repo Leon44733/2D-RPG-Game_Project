@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:41:44 pm
+ *  Last Modified: Sa 11.April 2026, 4:15:42 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -40,7 +40,7 @@ namespace ui
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
       // error while trying to initialize SDL2 library
-      utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL2 library\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+      // TODO: utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL2 library\nSDL Error: " + std::string(SDL_GetError()) + "\n");
       return false;
     }
 
@@ -48,7 +48,7 @@ namespace ui
     if(!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
     {
       // error while trying to initialize SDL_image library
-      utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL_image library\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+      // TODO: utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL_image library\nSDL Error: " + std::string(SDL_GetError()) + "\n");
       return false;
     }
 
@@ -64,7 +64,7 @@ namespace ui
     if(!mpSDLWindow)
     {
       // error while trying to create window
-      utils::log::Logger::error("SDL2 Error: Failed to create window\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+      // TODO: utils::log::Logger::error("SDL2 Error: Failed to create window\nSDL Error: " + std::string(SDL_GetError()) + "\n");
       SDL_Quit();
       return false;
     }

@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 21.March 2026, 1:05:24 pm
+ *  Last Modified: Sa 11.April 2026, 5:25:29 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -14,7 +14,7 @@
 
 #define SDL_MAIN_HANDLED
 
- #include "gfx/texture/include/texture_manager.h"
+#include "gfx/texture/include/texture_manager.h"
 #include "gfx/render/include/renderer_manager.h"
 #include "ui/window/include/window.h"
 #include "ui/elements/include/texture_element.h"
@@ -25,12 +25,15 @@
 
 int main()
 {
+  utils::log::Logger logger;
+  logger.info("Starting game...");
+
   // Initialize window
   std::shared_ptr<ui::Window> window = std::make_shared<ui::Window>(640, 360); // ToDo: Window size will be changed later
   if(!window->init())
   {
     window->destruct();
-    utils::log::Logger::error("Could not initialize window");
+    logger.error("Could not initialize window");
     return -1;
   }
 
