@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 8:47:14 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 11.April 2026, 5:27:29 pm
+ *  Last Modified: Tu 14.April 2026, 7:37:30 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -95,18 +95,19 @@ namespace utils
     void Logger::log(LogLevel aLevel, const std::string& arMsg)
     {
       std::stringstream ss;
+      
+      auto now  = std::chrono::system_clock::now();
+      auto time = std::chrono::system_clock::to_time_t(now);
+      auto ms   = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()) % 1000;
+
+      std::tm tm = *std::localtime(&time);
+      ss << std::put_time(&tm, "[%Y-%m-%d %H:%M:%S") << '.' << std::setw(3) << std::setfill('0') << ms.count() << "]";
 
       switch(aLevel)
       {
-      case LogLevel::INFO:
-        ss << "[INFO ] " << arMsg;
-        break;
-      case LogLevel::WARNING:
-        ss << "[WARN ] " << arMsg;
-        break;
-      case LogLevel::ERROR:
-        ss << "[ERROR] " << arMsg;
-        break;
+      case LogLevel::INFO:    ss << " [INFO ] " << arMsg; break;
+      case LogLevel::WARNING: ss << " [WARN ] " << arMsg; break;
+      case LogLevel::ERROR:   ss << " [ERROR] " << arMsg; break;
       }
 
       {
