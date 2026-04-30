@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:01 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 11.April 2026, 4:15:42 pm
+ *  Last Modified: Th 30.April 2026, 10:52:24 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -13,7 +13,7 @@
  */
 
 #include <iostream>
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 #include "ui/window/include/window.h"
 
@@ -41,6 +41,7 @@ namespace ui
     {
       // error while trying to initialize SDL2 library
       // TODO: utils::log::Logger::error("SDL2 Error: Failed to initialize the SDL2 library\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+      std::cout << "SDL2 Error: Failed to initialize the SDL2 library\nSDL Error: " + std::string(SDL_GetError()) + "\n";
       return false;
     }
 

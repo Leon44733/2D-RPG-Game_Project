@@ -5,14 +5,14 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 10:35:26 pm
+ *  Last Modified: Th 30.April 2026, 10:34:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include "kernel/include/game_loop.h"
 #include "kernel/include/camera.h"

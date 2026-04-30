@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 2:52:12 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 8:39:23 pm
+ *  Last Modified: Th 30.April 2026, 10:34:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include "gfx/render/include/renderable.h"
 

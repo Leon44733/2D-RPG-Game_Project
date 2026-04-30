@@ -5,7 +5,7 @@
 # Created Date: Mo 17.February 2025, 3:39:51 pm
 # Author: lbarwe
 # -----
-# Last Modified: Sa 15.November 2025, 12:03:16 am
+# Last Modified: Fr 01.May 2026, 12:04:41 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -24,8 +24,10 @@ target_sources(gfx PRIVATE
 )
 
 # include directories for this module
-target_include_directories(gfx PUBLIC
+target_include_directories(gfx PRIVATE
     ${CMAKE_SOURCE_DIR}/sources
+    ${CMAKE_SOURCE_DIR}/libs/SDL2/include
+    ${CMAKE_SOURCE_DIR}/libs/SDL2_image/include
 )
 
 # link SDL2 and SDL2_image with the gfx library

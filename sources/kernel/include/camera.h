@@ -5,7 +5,7 @@
  *  Created Date: We 05.March 2025, 11:36:11 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:52:32 pm
+ *  Last Modified: Th 30.April 2026, 10:34:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include "gfx/render/include/i_camera.h"
 

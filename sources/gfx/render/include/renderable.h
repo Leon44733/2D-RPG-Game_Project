@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:36:33 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 8:56:47 pm
+ *  Last Modified: Th 30.April 2026, 10:34:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <memory>
 
 namespace gfx
