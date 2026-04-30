@@ -5,7 +5,7 @@
 # Created Date: Fr 31.January 2025, 7:34:39 pm
 # Author: lbarwe
 # -----
-# Last Modified: We 05.March 2025, 11:44:01 am
+# Last Modified: Fr 01.May 2026, 12:10:40 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -21,12 +21,10 @@ target_sources(kernel PRIVATE
 )
 
 # include directories for this module
-target_include_directories(kernel PUBLIC
+target_include_directories(kernel PRIVATE
     ${CMAKE_SOURCE_DIR}/sources
+    ${CMAKE_SOURCE_DIR}/libs/SDL2/include
 )
 
 # link gfx, ui, entities and SDL2 with kernel library
 target_link_libraries(kernel PRIVATE gfx ui entities SDL2::SDL2)
-
-# add subdirectories for kernel module
-add_subdirectory(input)

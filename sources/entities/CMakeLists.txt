@@ -5,7 +5,7 @@
 # Created Date: Sa 01.March 2025, 3:02:36 pm
 # Author: lbarwe
 # -----
-# Last Modified: We 18.June 2025, 11:36:48 am
+# Last Modified: Fr 01.May 2026, 12:05:24 am
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -20,8 +20,9 @@ target_sources(entities PRIVATE
 )
 
 # include directories for this module
-target_include_directories(entities PUBLIC
+target_include_directories(entities PRIVATE
     ${CMAKE_SOURCE_DIR}/sources
+    ${CMAKE_SOURCE_DIR}/libs/SDL2/include
 )
 
 # link gfx and SDL2 with entities library

@@ -5,14 +5,14 @@
  *  Created Date: Tu 04.February 2025, 10:40:37 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 11.April 2026, 4:15:34 pm
+ *  Last Modified: Th 30.April 2026, 10:52:08 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 #include "gfx/texture/include/texture_manager.h"
 

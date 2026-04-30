@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 12:47:07 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:00:42 pm
+ *  Last Modified: Th 30.April 2026, 10:34:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef RENDERER_MANAGER_H
 #define RENDERER_MANAGER_H
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <vector>
 #include <memory>
 #include <unordered_map>
