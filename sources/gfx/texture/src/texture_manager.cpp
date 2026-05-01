@@ -5,14 +5,14 @@
  *  Created Date: Tu 04.February 2025, 10:40:37 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 30.April 2026, 10:52:08 pm
+ *  Last Modified: Fr 01.May 2026, 7:51:36 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include <SDL2/SDL_image.h>
+#include <SDL3_image/SDL_image.h>
 
 #include "gfx/texture/include/texture_manager.h"
 
@@ -35,7 +35,7 @@ namespace gfx
       SDL_Texture* texture = IMG_LoadTexture(apRenderer, arFilePath.c_str());
       if(!texture)
       {
-        // TODO: utils::log::Logger::error("SDL2 Error: Failed to load texture.\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+        // TODO: utils::log::Logger::error("SDL3 Error: Failed to load texture.\nSDL Error: " + std::string(SDL_GetError()) + "\n");
         return false;
       }
 

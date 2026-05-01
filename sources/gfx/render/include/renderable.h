@@ -5,7 +5,7 @@
  *  Created Date: Tu 18.February 2025, 11:36:33 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 30.April 2026, 10:34:13 pm
+ *  Last Modified: Fr 01.May 2026, 7:59:54 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 #include <memory>
 
 namespace gfx
@@ -58,19 +58,19 @@ namespace gfx
        * @param aWidth element width
        * @param aHeight element hight
        */
-      void setElementSize(int aWidth, int aHeight) { mWidth = aWidth; mHeight = aHeight; }
+      void setElementSize(float aWidth, float aHeight) { mWidth = aWidth; mHeight = aHeight; }
 
       /**
        * @brief Get element width.
        * @return element width
        */
-      int getElementWidth() const { return mWidth; }
+      float getElementWidth() const { return mWidth; }
 
       /**
        * @brief Get element height.
        * @return element height
        */
-      int getElementHeight() const { return mHeight; }
+      float getElementHeight() const { return mHeight; }
 
       /**
        * @brief Set element position.
@@ -83,7 +83,7 @@ namespace gfx
        * @brief Get element position.
        * @return position
        */
-      SDL_Point getElementPos() const { return mPos; }
+      SDL_FPoint getElementPos() const { return mPos; }
 
       /**
        * @brief Set visibility of object.
@@ -99,10 +99,10 @@ namespace gfx
 
     protected:
       SDL_Texture* mpTexture;      // texture to render
-      SDL_Point    mPos{0, 0};     // x-pos and y-pos of element
+      SDL_FPoint   mPos{0, 0};     // x-pos and y-pos of element
       bool         mVisible{true}; // visibility of element
-      int          mWidth;         // element width
-      int          mHeight;        // element height
+      float        mWidth;         // element width
+      float        mHeight;        // element height
     };
   }
 }

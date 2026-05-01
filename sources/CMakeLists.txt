@@ -5,7 +5,7 @@
 # Created Date: Th 26.December 2024, 3:32:33 am
 # Author: lbarwe
 # -----
-# Last Modified: Fr 01.May 2026, 1:39:17 pm
+# Last Modified: Fr 01.May 2026, 6:55:26 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -20,7 +20,7 @@ target_include_directories(game PRIVATE
     ${CMAKE_SOURCE_DIR}/sources
 )
 
-# link ui, gfx, entities, kernel, utils and SDL2 with the executable
+# link ui, gfx, entities, kernel, utils and SDL3 with the executable
 target_link_libraries(game PRIVATE ui gfx entities kernel utils MySDL)
 
 # add subdirectories

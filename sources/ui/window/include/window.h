@@ -5,7 +5,7 @@
  *  Created Date: Th 02.January 2025, 2:16:29 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 30.April 2026, 10:34:13 pm
+ *  Last Modified: Fr 01.May 2026, 6:55:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 namespace ui
 {
@@ -45,7 +45,7 @@ namespace ui
 
     /**
      * @brief Initialize window.
-     *        This includes initialization of SDL2 library and creation of window.
+     *        This includes initialization of SDL3 library and creation of window.
      * @return true if initialization was successful, false otherwise.
      */
     bool init();

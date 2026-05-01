@@ -5,7 +5,7 @@
  *  Created Date: Su 09.February 2025, 1:19:55 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 11.April 2026, 4:15:16 pm
+ *  Last Modified: Fr 01.May 2026, 7:51:04 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -24,7 +24,7 @@ namespace gfx
   namespace render
   {
     RendererManager::RendererManager(SDL_Window* apWindow)
-      : mpRenderer(SDL_CreateRenderer(apWindow, -1, SDL_RENDERER_ACCELERATED))
+      : mpRenderer(SDL_CreateRenderer(apWindow, NULL))
     {
       if(!mpRenderer)
       {

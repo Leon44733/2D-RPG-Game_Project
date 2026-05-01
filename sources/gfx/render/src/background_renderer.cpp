@@ -5,7 +5,7 @@
  *  Created Date: We 05.March 2025, 2:28:02 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 10:33:40 pm
+ *  Last Modified: Fr 01.May 2026, 7:45:44 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -25,8 +25,8 @@ namespace gfx
 
     void BackgroundRenderer::render(const Renderable& arElem, const std::optional<RenderContext>& arCtx)
     {
-      int bg_pos_x = 0;
-      int bg_pos_y = 0;
+      float bg_pos_x = 0.f;
+      float bg_pos_y = 0.f;
 
       // adjust background position based on camera position if camera is provided
       if (arCtx && arCtx->mpCamera)
@@ -36,8 +36,8 @@ namespace gfx
       }
 
       // render texture at position
-      SDL_Rect dest_rect = {bg_pos_x, bg_pos_y, arElem.getElementWidth(), arElem.getElementHeight()};
-      SDL_RenderCopy(mpRenderer, arElem.getTexture(), nullptr, &dest_rect);
+      SDL_FRect dest_rect = {bg_pos_x, bg_pos_y, arElem.getElementWidth(), arElem.getElementHeight()};
+      SDL_RenderTexture(mpRenderer, arElem.getTexture(), nullptr, &dest_rect);
     }
   }
 }
