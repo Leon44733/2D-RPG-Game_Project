@@ -5,7 +5,7 @@
 # Created Date: Th 26.December 2024, 3:32:33 am
 # Author: lbarwe
 # -----
-# Last Modified: Fr 01.May 2026, 12:09:14 am
+# Last Modified: Fr 01.May 2026, 1:39:17 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -18,11 +18,10 @@ add_executable(game main.cpp)
 # include directories for the main executable
 target_include_directories(game PRIVATE
     ${CMAKE_SOURCE_DIR}/sources
-    ${CMAKE_SOURCE_DIR}/libs/SDL2/include
 )
 
 # link ui, gfx, entities, kernel, utils and SDL2 with the executable
-target_link_libraries(game PRIVATE ui gfx entities kernel utils SDL2::SDL2)
+target_link_libraries(game PRIVATE ui gfx entities kernel utils MySDL)
 
 # add subdirectories
 add_subdirectory(ui)

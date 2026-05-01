@@ -5,7 +5,7 @@
 # Created Date: Th 02.January 2025, 2:28:56 pm
 # Author: lbarwe
 # -----
-# Last Modified: Fr 01.May 2026, 12:06:23 am
+# Last Modified: Fr 01.May 2026, 12:50:04 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -23,9 +23,7 @@ target_sources(ui PRIVATE
 # include directories for this module
 target_include_directories(ui PRIVATE 
     ${CMAKE_SOURCE_DIR}/sources
-    ${CMAKE_SOURCE_DIR}/libs/SDL2/include
-    ${CMAKE_SOURCE_DIR}/libs/SDL2_image/include
 )
 
 # link gfx, utils, SDL2 and SDL2_image with the ui library
-target_link_libraries(ui PRIVATE gfx utils SDL2::SDL2 SDL2_image::SDL2_image)
+target_link_libraries(ui PRIVATE gfx utils MySDL MySDL_Image)
