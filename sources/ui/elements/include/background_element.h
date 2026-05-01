@@ -5,7 +5,7 @@
  *  Created Date: Sa 08.March 2025, 4:49:27 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 30.April 2026, 10:34:13 pm
+ *  Last Modified: Fr 01.May 2026, 6:55:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef BACKGROUND_ELEMENT_H
 #define BACKGROUND_ELEMENT_H
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 #include "gfx/render/include/renderable.h"
 

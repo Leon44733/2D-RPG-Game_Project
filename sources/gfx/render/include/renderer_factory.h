@@ -5,7 +5,7 @@
  *  Created Date: Tu 21.October 2025, 8:29:33 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 30.April 2026, 10:34:13 pm
+ *  Last Modified: Fr 01.May 2026, 6:55:26 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef RENDERER_FACTORY_H
 #define RENDERER_FACTORY_H
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 #include <memory>
 
 namespace gfx

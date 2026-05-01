@@ -5,7 +5,7 @@
  *  Created Date: Fr 17.January 2025, 12:07:16 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:38:45 pm
+ *  Last Modified: Fr 01.May 2026, 8:05:13 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -28,7 +28,10 @@ namespace ui
       if(mpTexture)
       {
         // Query texture for its width and height
-        SDL_QueryTexture(mpTexture, nullptr, nullptr, &mWidth, &mHeight);
+        float w, h = 0.f;
+        SDL_GetTextureSize(mpTexture, &w, &h);
+        mWidth = w;
+        mHeight = h;
       }
       else
       {

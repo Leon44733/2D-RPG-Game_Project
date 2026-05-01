@@ -5,7 +5,7 @@
 # Created Date: Fr 31.January 2025, 7:34:39 pm
 # Author: lbarwe
 # -----
-# Last Modified: Fr 01.May 2026, 12:49:45 pm
+# Last Modified: Fr 01.May 2026, 6:55:26 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -25,5 +25,5 @@ target_include_directories(kernel PRIVATE
     ${CMAKE_SOURCE_DIR}/sources
 )
 
-# link gfx, ui, entities and SDL2 with kernel library
+# link gfx, ui, entities and SDL3 with kernel library
 target_link_libraries(kernel PRIVATE gfx ui entities MySDL)

@@ -5,7 +5,7 @@
 # Created Date: Mo 17.February 2025, 3:39:51 pm
 # Author: lbarwe
 # -----
-# Last Modified: Fr 01.May 2026, 12:49:34 pm
+# Last Modified: Fr 01.May 2026, 6:55:26 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -28,5 +28,5 @@ target_include_directories(gfx PRIVATE
     ${CMAKE_SOURCE_DIR}/sources
 )
 
-# link SDL2 and SDL2_image with the gfx library
+# link SDL3 and SDL3_image with the gfx library
 target_link_libraries(gfx PRIVATE MySDL MySDL_Image)

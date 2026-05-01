@@ -1,6 +1,6 @@
 .vscode
 
-/libs/SDL2
-/libs/SDL2_image
+/libs/SDL3
+/libs/SDL3_image
 /build
 /logs

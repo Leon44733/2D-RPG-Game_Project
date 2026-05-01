@@ -5,14 +5,14 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 30.April 2026, 10:34:13 pm
+ *  Last Modified: Fr 01.May 2026, 8:05:56 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 #include "kernel/include/game_loop.h"
 #include "kernel/include/camera.h"
@@ -47,7 +47,7 @@ namespace kernel
       while(SDL_PollEvent(&event))
       {
         // check if user closes window
-        if(event.type == SDL_QUIT)
+        if(event.type == SDL_EVENT_QUIT)
         {
           running = false;
         }

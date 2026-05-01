@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:01:46 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 15.November 2025, 5:01:11 pm
+ *  Last Modified: Fr 01.May 2026, 8:05:21 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -25,8 +25,11 @@ namespace entities
       mPos.y = aStartY;
       mpTexture = apTexture;
 
-      // query texture for its width and height
-      SDL_QueryTexture(mpTexture, nullptr, nullptr, &mWidth, &mHeight);
+      // Query texture for its width and height
+      float w, h = 0.f;
+      SDL_GetTextureSize(mpTexture, &w, &h);
+      mWidth = w;
+      mHeight = h;
     }
 
     Character::~Character()

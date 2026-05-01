@@ -5,7 +5,7 @@
  *  Created Date: Sa 01.March 2025, 3:23:58 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Fr 06.February 2026, 9:30:07 pm
+ *  Last Modified: Fr 01.May 2026, 7:48:37 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -26,15 +26,15 @@ namespace gfx
     {
       // get window size
       int window_width, window_height;
-      SDL_GetRendererOutputSize(mpRenderer, &window_width, &window_height);
+      SDL_GetCurrentRenderOutputSize(mpRenderer, &window_width, &window_height);
 
       // center player in window
-      int player_x_pos = window_width / 2 - arPlayer.getElementWidth() / 2;
-      int player_y_pos = window_height / 2 - arPlayer.getElementHeight() / 2;
+      float player_x_pos = window_width / 2 - arPlayer.getElementWidth() / 2;
+      float player_y_pos = window_height / 2 - arPlayer.getElementHeight() / 2;
 
       // render texture at position
-      SDL_Rect dest_rect = {player_x_pos, player_y_pos, arPlayer.getElementWidth(), arPlayer.getElementHeight()};
-      SDL_RenderCopy(mpRenderer, arPlayer.getTexture(), nullptr, &dest_rect);
+      SDL_FRect dest_rect = {player_x_pos, player_y_pos, arPlayer.getElementWidth(), arPlayer.getElementHeight()};
+      SDL_RenderTexture(mpRenderer, arPlayer.getTexture(), nullptr, &dest_rect);
     }
   }
 }

@@ -5,7 +5,7 @@
  *  Created Date: Sa 22.February 2025, 6:01:49 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Th 30.April 2026, 10:34:13 pm
+ *  Last Modified: Fr 01.May 2026, 8:07:19 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,7 +15,7 @@
 #ifndef KEY_INPUT_H
 #define KEY_INPUT_H
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 namespace kernel
 {
@@ -40,7 +40,7 @@ namespace kernel
       bool isKeyPressed(SDL_Scancode aKey) const;
 
     private:
-      const Uint8* mpState; // pointer to the current keyboard state
+      const bool* mpState; // pointer to the current keyboard state
     };
   }
 }
