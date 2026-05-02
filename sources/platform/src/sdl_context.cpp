@@ -5,7 +5,7 @@
  *  Created Date: Sa 02.May 2026, 3:38:22 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 4:39:05 pm
+ *  Last Modified: Sa 02.May 2026, 5:02:12 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2026 Leon Barwe - lbarwe.business@gmail.com
@@ -16,7 +16,6 @@
 #include <string>
 
 #include "platform/inlcude/sdl_context.h"
-#include "utils/include/logger.h"
 
 platform::SDLContext::SDLContext(utils::log::Logger& arLogger)
   : mrLogger(arLogger)

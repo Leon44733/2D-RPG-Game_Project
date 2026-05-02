@@ -5,7 +5,7 @@
  *  Created Date: Sa 02.May 2026, 3:38:15 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 4:22:06 pm
+ *  Last Modified: Sa 02.May 2026, 5:01:39 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2026 Leon Barwe - lbarwe.business@gmail.com
@@ -15,11 +15,7 @@
 #ifndef SDL_CONTEXT_H
 #define SDL_CONTEXT_H
 
-namespace utils::log
-{
-  //Forward declaration
-  class Logger;
-}
+#include "utils/include/logger.h"
 
 namespace platform
 {

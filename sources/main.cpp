@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 4:44:04 pm
+ *  Last Modified: Sa 02.May 2026, 7:01:02 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 
 #include "platform/inlcude/sdl_context.h"
 #include "platform/inlcude/window.h"
+#include "kernel/include/game_loop.h"
 #include "utils/include/logger.h"
 
 int main()
@@ -31,4 +32,7 @@ int main()
     return -1;
   else
     logger.info("Window initialized successfully.\n");
+
+  kernel::GameLoop gameLoop(logger);
+  gameLoop.run();
 }

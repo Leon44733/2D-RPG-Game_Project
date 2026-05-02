@@ -5,7 +5,7 @@
 # Created Date: Th 26.December 2024, 3:32:33 am
 # Author: lbarwe
 # -----
-# Last Modified: Sa 02.May 2026, 4:42:58 pm
+# Last Modified: Sa 02.May 2026, 7:02:09 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -21,8 +21,9 @@ target_include_directories(game PRIVATE
 )
 
 # link platform and SDL3 with the executable
-target_link_libraries(game PRIVATE utils platform MySDL)
+target_link_libraries(game PRIVATE utils platform kernel MySDL)
 
 # add subdirectories
 add_subdirectory(utils)
 add_subdirectory(platform)
+add_subdirectory(kernel)

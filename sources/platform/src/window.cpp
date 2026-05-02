@@ -5,18 +5,14 @@
  *  Created Date: Sa 02.May 2026, 4:07:44 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 4:28:31 pm
+ *  Last Modified: Sa 02.May 2026, 5:02:29 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2026 Leon Barwe - lbarwe.business@gmail.com
  * ###############################################################################
  */
 
-#include <iostream>
-#include <SDL3_image/SDL_image.h>
-
 #include "platform/inlcude/window.h"
-#include "utils/include/logger.h"
 
 namespace platform
 {

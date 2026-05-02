@@ -5,7 +5,7 @@
  *  Created Date: Sa 02.May 2026, 4:07:54 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 4:22:52 pm
+ *  Last Modified: Sa 02.May 2026, 5:02:58 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2026 Leon Barwe - lbarwe.business@gmail.com
@@ -16,12 +16,7 @@
 #define WINDOW_H
 
 #include <SDL3/SDL.h>
-
-namespace utils::log
-{
-  //Forward declaration
-  class Logger;
-}
+#include "utils/include/logger.h"
 
 namespace platform
 {
@@ -33,6 +28,8 @@ namespace platform
   public:
     /**
      * @brief Construct new Window object.
+     * @param arLogger reference to the logger instance
+      *
      */
     Window(utils::log::Logger& arLogger);
 
