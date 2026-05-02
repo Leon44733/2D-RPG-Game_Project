@@ -5,7 +5,7 @@
  *  Created Date: Sa 02.May 2026, 3:38:22 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 5:02:12 pm
+ *  Last Modified: Sa 02.May 2026, 11:54:34 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2026 Leon Barwe - lbarwe.business@gmail.com
@@ -31,7 +31,7 @@ bool platform::SDLContext::init()
   // Initialize SDL3 library
   if(!SDL_Init(SDL_INIT_VIDEO)) // ToDo: Add other flags later (e.g. | SDL_INIT_AUDIO)
   {
-    mrLogger.error("SDL3 Error: Failed to initialize the SDL3 library\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+    mrLogger.error("SDL3 Error: Failed to initialize the SDL3 library\nSDL Error: " + std::string(SDL_GetError()));
     return false;
   }
   return true;

@@ -5,7 +5,7 @@
  *  Created Date: Sa 02.May 2026, 4:07:44 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 5:02:29 pm
+ *  Last Modified: Sa 02.May 2026, 11:55:00 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2026 Leon Barwe - lbarwe.business@gmail.com
@@ -45,7 +45,7 @@ namespace platform
     if(!mpSDLWindow)
     {
       // error while trying to create window
-      mrLogger.error("SDL3 Error: Failed to create window\nSDL Error: " + std::string(SDL_GetError()) + "\n");
+      mrLogger.error("SDL3 Error: Failed to create window\nSDL Error: " + std::string(SDL_GetError()));
       return false;
     }
     return true;

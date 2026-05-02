@@ -5,7 +5,7 @@
 # Created Date: Fr 31.January 2025, 7:34:39 pm
 # Author: lbarwe
 # -----
-# Last Modified: Sa 02.May 2026, 7:01:46 pm
+# Last Modified: Sa 02.May 2026, 11:44:29 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -16,6 +16,7 @@
 add_library(kernel STATIC)
 target_sources(kernel PRIVATE
     src/game_loop.cpp
+    input/src/input_manager.cpp
 )
 
 # include directories for this module

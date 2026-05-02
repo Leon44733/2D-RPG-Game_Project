@@ -5,7 +5,7 @@
  *  Created Date: Fr 31.January 2025, 7:10:52 pm
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 6:59:26 pm
+ *  Last Modified: Su 03.May 2026, 12:39:03 am
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2025 Leon Barwe - lbarwe.business@gmail.com
@@ -15,6 +15,7 @@
 #include <SDL3/SDL.h>
 
 #include "kernel/include/game_loop.h"
+#include "kernel/input/include/input_manager.h"
 #include "platform/inlcude/window.h"
 
 namespace kernel
@@ -28,6 +29,7 @@ namespace kernel
   void GameLoop::run()
   {
     bool running = true;
+    input::InputManager input_manager;
     SDL_Event event;
 
     while(running)
@@ -35,12 +37,13 @@ namespace kernel
       // open window until user closes it
       while(SDL_PollEvent(&event))
       {
-        // check if user closes window
         if(event.type == SDL_EVENT_QUIT)
         {
           running = false;
-          mrLogger.info("Quit event received. Closing game loop.\n");
+          mrLogger.info("Quit event received. Exit game loop.");
         }
+
+        input_manager.processEvent(event);
       }
     }
   }
