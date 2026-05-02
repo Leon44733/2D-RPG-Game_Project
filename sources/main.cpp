@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 4:39:43 pm
+ *  Last Modified: Sa 02.May 2026, 4:39:53 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -24,5 +24,9 @@ int main()
 
   platform::SDLContext sdlContext(logger);
   if(!sdlContext.init())
+    return -1;
+
+  platform::Window window(logger);
+  if(!window.init())
     return -1;
 }
