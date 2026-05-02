@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 4:39:53 pm
+ *  Last Modified: Sa 02.May 2026, 4:44:04 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -29,4 +29,6 @@ int main()
   platform::Window window(logger);
   if(!window.init())
     return -1;
+  else
+    logger.info("Window initialized successfully.\n");
 }
