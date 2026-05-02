@@ -5,7 +5,7 @@
 # Created Date: Th 26.December 2024, 3:32:33 am
 # Author: lbarwe
 # -----
-# Last Modified: Sa 02.May 2026, 7:02:09 pm
+# Last Modified: Sa 02.May 2026, 11:20:04 pm
 # Modified By: lbarwe
 # -----
 # Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -13,7 +13,10 @@
 #
 
 # define executable for the game
-add_executable(game main.cpp)
+add_executable(game
+    main.cpp
+    game/src/game.cpp
+)
 
 # include directories for the main executable
 target_include_directories(game PRIVATE

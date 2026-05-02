@@ -5,7 +5,7 @@
  *  Created Date: Th 26.December 2024, 3:25:20 am
  *  Author: lbarwe
  *  -----
- *  Last Modified: Sa 02.May 2026, 7:01:02 pm
+ *  Last Modified: Sa 02.May 2026, 11:21:43 pm
  *  Modified By: lbarwe
  *  -----
  *  Copyright (c) 2024 Leon Barwe - lbarwe.business@gmail.com
@@ -14,25 +14,12 @@
 
 #define SDL_MAIN_HANDLED
 
-#include "platform/inlcude/sdl_context.h"
-#include "platform/inlcude/window.h"
-#include "kernel/include/game_loop.h"
-#include "utils/include/logger.h"
+#include "game/include/game.h"
 
 int main()
 {
-  utils::log::Logger logger;
+  game::Game game;
+  game.run();
 
-  platform::SDLContext sdlContext(logger);
-  if(!sdlContext.init())
-    return -1;
-
-  platform::Window window(logger);
-  if(!window.init())
-    return -1;
-  else
-    logger.info("Window initialized successfully.\n");
-
-  kernel::GameLoop gameLoop(logger);
-  gameLoop.run();
+  return 0;
 }
